@@ -139,9 +139,26 @@ const home = {
         <div><dt>Paar- &amp; Familientherapie</dt><dd>${eur(h.prices.paar)} / ${h.prices.minutes}&nbsp;Min.</dd></div>
       </dl>
     </div>
-    <figure class="hero-media">
-      ${h.img('praxis-alsergrund-therapieraum', 'Therapieraum der Praxis in 1090 Wien', { sizes: '(min-width: 960px) 40vw, 100vw', eager: true })}
-    </figure>
+    <div class="hero-ship" aria-hidden="true">
+      <svg viewBox="0 0 600 610" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" focusable="false">
+        <g class="ship-birds" stroke-width="2.6">
+          <path d="M44 128C80 122 112 140 134 170C158 144 192 128 228 124"/>
+          <path d="M14 258C36 254 56 264 68 281C84 265 104 255 126 253"/>
+          <path d="M150 340C161 339 169 345 174 352C180 344 188 339 198 337"/>
+        </g>
+        <g class="ship-boat" stroke-width="3">
+          <path d="M398 22C400 180 402 340 405 512"/>
+          <path d="M386 70C346 220 272 392 196 512C262 500 324 492 384 489"/>
+          <path d="M444 154C538 196 590 330 532 480C492 478 452 478 414 482"/>
+          <path stroke-width="2.4" d="M404 150C470 228 486 350 414 482"/>
+          <path stroke-width="2.4" d="M404 150L462 356"/>
+          <path stroke-width="2" d="M456 176C514 254 520 384 446 480"/>
+          <path d="M170 542C290 532 410 520 502 498C476 540 440 570 360 576C280 582 206 572 170 542Z"/>
+          <path stroke-width="2.4" d="M262 527L262 513L370 507L372 521"/>
+        </g>
+        <path class="ship-water" stroke-width="1.6" opacity=".55" d="M120 596C220 588 330 586 440 590C480 591 520 593 556 592"/>
+      </svg>
+    </div>
   </div>
 </section>
 
