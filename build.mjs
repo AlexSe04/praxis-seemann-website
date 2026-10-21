@@ -1,6 +1,7 @@
 // Statischer Site-Generator ohne Abhängigkeiten.
 // Aufruf: node build.mjs  →  erzeugt die fertige Website in ./site
 // Optional: SITE_URL=https://… BOOKING_URL=https://… node build.mjs
+// Bilder neu erzeugen (nur lokal, benötigt ImageMagick): BILDER=1 node build.mjs
 
 import { mkdirSync, rmSync, writeFileSync, copyFileSync, readdirSync, existsSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
@@ -23,7 +24,9 @@ const helpers = { esc, abs, bookingAttrs, person, contact, intakt, prices, zusch
 const sameAs = [profiles.google, profiles.linkedin].filter(Boolean);
 
 // ---------- Bilder ----------
-// Responsive WebP-Varianten (ImageMagick „convert“ wird benötigt).
+// Die fertigen Bilder liegen in src/img und werden beim Build nur kopiert –
+// so läuft der Build auch ohne ImageMagick (z. B. auf Cloudflare Pages).
+// Mit BILDER=1 werden sie aus src/img-src neu erzeugt (ImageMagick „convert“ nötig).
 const images = {
   'alexandra-seemann-psychotherapeutin-wien': { widths: [400, 600, 770], ratio: [1, 1] },
   'psychotherapie-praxis-1090-wien': { widths: [640, 960, 1440], ratio: [4, 3] },
@@ -31,14 +34,15 @@ const images = {
 };
 
 function buildImages() {
-  mkdirSync(join(OUT, 'img'), { recursive: true });
+  const IMG = join(SRC, 'img');
+  mkdirSync(IMG, { recursive: true });
   for (const [name, { widths, ratio }] of Object.entries(images)) {
     for (const w of widths) {
       const h = Math.round((w * ratio[1]) / ratio[0]);
       execFileSync('convert', [
         join(SRC, 'img-src', `${name}.jpg`),
         '-resize', `${w}x${h}^`, '-gravity', 'center', '-extent', `${w}x${h}`,
-        '-strip', '-quality', '78', join(OUT, 'img', `${name}-${w}.webp`)
+        '-strip', '-quality', '78', join(IMG, `${name}-${w}.webp`)
       ]);
     }
   }
@@ -46,7 +50,7 @@ function buildImages() {
   execFileSync('convert', [
     join(SRC, 'img-src', 'psychotherapie-praxis-1090-wien.jpg'),
     '-resize', '1200x630^', '-gravity', 'center', '-extent', '1200x630',
-    '-strip', '-quality', '80', join(OUT, 'img', 'og-psychotherapie-wien.jpg')
+    '-strip', '-quality', '80', join(IMG, 'og-psychotherapie-wien.jpg')
   ]);
 }
 
@@ -246,7 +250,9 @@ ${footer()}
 rmSync(OUT, { recursive: true, force: true });
 mkdirSync(OUT, { recursive: true });
 
-buildImages();
+if (process.env.BILDER === '1') buildImages();
+mkdirSync(join(OUT, 'img'));
+for (const f of readdirSync(join(SRC, 'img'))) copyFileSync(join(SRC, 'img', f), join(OUT, 'img', f));
 mkdirSync(join(OUT, 'fonts'));
 for (const f of readdirSync(join(SRC, 'fonts'))) copyFileSync(join(SRC, 'fonts', f), join(OUT, 'fonts', f));
 for (const f of ['styles.css', 'main.js', 'favicon.svg']) copyFileSync(join(SRC, f), join(OUT, f));
