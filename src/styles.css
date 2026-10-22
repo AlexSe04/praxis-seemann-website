@@ -225,9 +225,12 @@ section[id] { scroll-margin-top: 72px; }
   .hero-ship { animation: ship-sail 3.6s cubic-bezier(.22, .61, .26, 1) .15s both; }
   .ship-boat { animation: ship-rock 3.6s ease-in-out .15s both; }
 }
+/* Beim Vorbeifahren am Text bleibt das Schiff blass, erst kurz vor dem Ziel wird es kräftig */
 @keyframes ship-sail {
   from { transform: translateX(-100vw); opacity: 0; }
-  12% { opacity: 1; }
+  15% { opacity: .18; }
+  55% { opacity: .3; }
+  82% { opacity: 1; }
   to { transform: none; opacity: 1; }
 }
 /* Schaukeln mit abnehmender Stärke, endet exakt in der Ruhelage */
