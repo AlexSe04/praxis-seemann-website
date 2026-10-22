@@ -29,8 +29,7 @@ const sameAs = [profiles.google, profiles.linkedin].filter(Boolean);
 // Mit BILDER=1 werden sie aus src/img-src neu erzeugt (ImageMagick „convert“ nötig).
 const images = {
   'alexandra-seemann-psychotherapeutin-wien': { widths: [400, 600, 770], ratio: [1, 1] },
-  'psychotherapie-praxis-1090-wien': { widths: [640, 960, 1440], ratio: [4, 3] },
-  'praxis-alsergrund-therapieraum': { widths: [480, 720, 860], ratio: [4, 5] }
+  'psychotherapie-praxis-1090-wien': { widths: [640, 960, 1440], ratio: [4, 3] }
 };
 
 function buildImages() {
