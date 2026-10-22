@@ -217,13 +217,18 @@ section[id] { scroll-margin-top: 72px; }
 .hero-text { position: relative; z-index: 1; }
 
 /* Segelschiff: fährt beim Laden von links in seine Endposition (nur CSS, nur transform/opacity) */
-.hero-ship { width: min(100%, 420px); justify-self: center; color: var(--accent); pointer-events: none; }
+.hero-ship { width: min(100%, 300px); justify-self: center; color: var(--accent); pointer-events: none; }
 .hero-ship svg { display: block; width: 100%; height: auto; overflow: visible; }
 .ship-birds, .ship-water { color: var(--smoke); }
+/* Linienstärke in Bildschirmpixeln, damit das Schiff in jeder Größe gleich klar wirkt */
+.hero-ship path { vector-effect: non-scaling-stroke; stroke-width: 1.7px; }
+.ship-boat path[stroke-width] { stroke-width: 1.3px; }
+.ship-birds path { stroke-width: 1.5px; }
+.hero-ship .ship-water { stroke-width: 1.1px; }
 .ship-boat { transform-box: fill-box; transform-origin: 50% 92%; }
 @media (prefers-reduced-motion: no-preference) {
-  .hero-ship { animation: ship-sail 3.6s cubic-bezier(.22, .61, .26, 1) .15s both; }
-  .ship-boat { animation: ship-rock 3.6s ease-in-out .15s both; }
+  .hero-ship { animation: ship-sail 5.5s cubic-bezier(.22, .61, .26, 1) .15s both; }
+  .ship-boat { animation: ship-rock 5.5s ease-in-out .15s both; }
 }
 /* Beim Vorbeifahren am Text bleibt das Schiff blass, erst kurz vor dem Ziel wird es kräftig */
 @keyframes ship-sail {
@@ -249,7 +254,7 @@ section[id] { scroll-margin-top: 72px; }
   .hero-text { display: contents; }
   .hero-text > * { order: 3; }
   .hero h1 { order: 1; }
-  .hero-ship { order: 2; width: min(46vw, 210px); justify-self: end; margin: -.25rem 0 .75rem; }
+  .hero-ship { order: 2; width: min(36vw, 160px); justify-self: end; margin: -.25rem 0 .75rem; }
 }
 
 /* Intro */
