@@ -318,7 +318,7 @@ ${pageHero({ eyebrow: 'Psychotherapie', title: 'Einzeltherapie in Wien', lead: '
 <section class="section">
   <div class="wrap narrow prose">
     <h2 class="heading-accent">Wann Psychotherapie hilfreich sein kann</h2>
-    <p>Viele Menschen suchen Psychotherapie, wenn eine Belastung länger anhält oder der Alltag spürbar schwerer wird. Mögliche Anliegen sind zum Beispiel:</p>
+    <p>Psychotherapie kann unterstützen, wenn belastende Situationen länger andauern, akute Herausforderungen auftreten oder der Alltag zunehmend schwerfällt. Auch in Phasen der Unsicherheit, bei wichtigen Entscheidungen oder wenn man gerade nicht weiß, wie es weitergehen soll, kann Therapie hilfreich sein, Klarheit und neue Perspektiven zu gewinnen. Mögliche Anliegen sind zum Beispiel:</p>
     <ul class="list">
       <li>Krisen, Verluste und Lebensübergänge</li>
       <li>Ängste, Erschöpfung oder anhaltende Niedergeschlagenheit</li>
