@@ -129,7 +129,7 @@ const home = {
     <div class="hero-text">
       <h1>Psychotherapie in Wien</h1>
       <p class="hero-person">${h.person.name}<br><span>${h.person.job} für ${h.person.method}</span></p>
-      <p class="hero-intro">Psychotherapie für Einzelpersonen, Paare und Familien in 1090&nbsp;Wien. Klar, persönlich und auf Ihre individuelle Situation abgestimmt.</p>
+      <p class="hero-intro">Psychotherapie für Einzelpersonen, Paare und Familien in 1090&nbsp;Wien.</p>
       <p class="hero-services">Einzeltherapie · Paartherapie · Familientherapie · Onlineberatung</p>
       <div class="hero-cta">
         <a class="btn btn-large"${h.bookingAttrs}>Termin buchen</a>
