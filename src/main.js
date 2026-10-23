@@ -29,6 +29,7 @@
       box.innerHTML = '';
       box.appendChild(frame);
       box.classList.add('is-loaded');
+      frame.focus();
     });
   });
 

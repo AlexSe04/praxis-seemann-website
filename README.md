@@ -28,7 +28,7 @@ nicht in Git eingecheckt. Benötigt nur Node ≥ 18, keine weiteren Abhängigkei
 | Build command | `node build.mjs` |
 | Build output directory | `site` |
 | Root directory | `/` |
-| Umgebungsvariablen (optional) | `SITE_URL`, `BOOKING_URL`, `LINKEDIN_URL` |
+| Umgebungsvariablen (optional) | `SITE_URL`, `BOOKING_URL`, `LINKEDIN_URL`, `ETERMIN_ENABLED` |
 
 Ohne `SITE_URL` wird `https://www.praxis-seemann.at` verwendet.
 
@@ -60,3 +60,25 @@ oder danach nur die tatsächlich gewünschten Dateien in `src/img/` committen.
 - **Portraitfoto** in höherer Auflösung (aktuell 770 × 770 px).
 - **Preis Onlineberatung** – auf der Website bewusst ohne Preisangabe.
 - **Impressum / Datenschutz** rechtlich prüfen (Aufsichtsbehörde, Hosting-Anbieter, Buchungstool).
+
+## Datenschutz & Cookies
+
+- Die Website setzt **keine Cookies** und nutzt weder Local Storage noch Session Storage (geprüft per Browser-Test).
+  Darum gibt es **kein Cookie-Banner**. Kommt ein Dienst dazu, der Cookies setzt oder Daten an Dritte überträgt,
+  muss die Datenschutzerklärung (inkl. Tabelle) angepasst und ein Banner neu bewertet werden.
+- **Google Maps** lädt nur nach Klick auf „Karte laden“ (Zwei-Klick, `src/main.js`); die Auswahl wird nicht gespeichert.
+- Die Datenschutzerklärung steht in `content.mjs` (`dsSections`).
+
+## eTermin – vorbereitet, nicht aktiv
+
+Der eTermin-Abschnitt der Datenschutzerklärung erscheint nur mit `ETERMIN_ENABLED=1`.
+Vor der Aktivierung:
+
+1. Buchungs-URL von eTermin besorgen und als `BOOKING_URL` setzen (externer Link, kein iFrame/Popup –
+   ein eingebettetes Widget bräuchte eine eigene Zwei-Klick-Einwilligung).
+2. Buchungsformular bei eTermin minimal halten: nur Name, Telefon und/oder E-Mail, Termin; keine Freitextfelder
+   zu Beschwerden/Diagnosen, kein Geburtsdatum/Anschrift, wenn nicht nötig. Erinnerungs-SMS/E-Mails datensparsam formulieren.
+3. AVV (05.09.2026, Version 07.2026 v6.2) unterschrieben ablegen; Unterauftragsverarbeiter und TOMs prüfen.
+4. Prüfen, ob die eTermin-Buchungsseite Cookies/Tracking einsetzt; Löschfristen in eTermin einstellen.
+5. Texte in `content.mjs` (Abschnitt `etermin`, Speicherdauer, Empfänger) mit der tatsächlichen Konfiguration abgleichen.
+6. Mit `ETERMIN_ENABLED=1` in den Cloudflare-Pages-Umgebungsvariablen bauen.
