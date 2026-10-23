@@ -207,7 +207,7 @@ section[id] { scroll-margin-top: 72px; }
 .hero h1 { margin-bottom: .4em; }
 .hero-person { font-family: var(--serif); font-size: clamp(1.15rem, 1.7vw, 1.35rem); line-height: 1.35; margin-bottom: 1rem; }
 .hero-person span { color: var(--muted); font-size: .85em; font-style: italic; }
-.hero-intro { font-size: 1.1rem; color: var(--ink-soft); max-width: 34em; }
+.hero-intro { font-size: 1.1rem; color: var(--accent); max-width: 34em; }
 .hero-services { font-size: .82rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 1.5rem; }
 .hero-cta { margin-bottom: 1.5rem; }
 .hero-prices { display: flex; flex-direction: column; gap: .3rem; margin: 0; font-size: .95rem; color: var(--ink-soft); }
