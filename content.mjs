@@ -166,7 +166,7 @@ const home = {
 <section class="section intro" id="psychotherapie">
   <div class="wrap narrow center">
     <h2>Psychotherapie, die zu Ihrer Situation passt</h2>
-    <p class="lead">Manchmal braucht es einen geschützten Raum, um Belastendes zu verstehen, neue Perspektiven zu entwickeln und Veränderungen anzustoßen. In meiner Praxis begleite ich Sie dabei professionell, wertschätzend und mit einem klaren Blick auf Ihre individuellen Möglichkeiten.</p>
+    <p class="lead">Manchmal braucht es einen geschützten Raum, um Belastendes zu verstehen, neue Perspektiven zu entwickeln und Veränderungen anzustoßen. In meiner Praxis begleite ich Sie dabei professionell, wertschätzend und mit einem Fokus auf Ihre individuellen Möglichkeiten.</p>
   </div>
 </section>
 
