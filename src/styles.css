@@ -261,7 +261,7 @@ section[id] { scroll-margin-top: 72px; }
 /* Intro */
 .intro { padding-top: 0; }
 .intro .wrap { border-top: 1px solid var(--line); padding-top: var(--section); }
-.intro .lead { margin: 0 auto; max-width: 38em; }
+.intro .lead { margin: 0 auto; max-width: 38em; color: var(--sandgold); font-size: clamp(1rem, 1.4vw, 1.125rem); }
 
 /* Angebot */
 .services { list-style: none; margin: 0; padding: 0; border-bottom: 1px solid var(--line); }
