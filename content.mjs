@@ -313,10 +313,10 @@ const kosten = {
   ogTitle: 'Kosten der Psychotherapie in Wien – Zuschuss & Rückerstattung',
   description: 'Was Psychotherapie in 1090 Wien kostet, welchen Kostenzuschuss ÖGK, SVS, BVAEB und KFA Wien leisten und wie Sie die Rückerstattung beantragen.',
   body: (h) => `
-${pageHero({ eyebrow: 'Kosten', title: 'Kosten der Psychotherapie', lead: 'Transparente Honorare und ein Überblick, welchen Teil die Krankenkasse unter Umständen rückerstattet.' })}
+${pageHero({ eyebrow: 'Kosten', title: 'Kosten der Psychotherapie' })}
 <section class="section">
   <div class="wrap narrow prose">
-    <h2>Honorar pro Sitzung</h2>
+    <h2 class="heading-accent">Honorar pro Sitzung</h2>
     <dl class="price-list">
       <div><dt>Einzeltherapie</dt><dd>${eur(h.prices.einzel)} · ${h.prices.minutes}&nbsp;Minuten</dd></div>
       <div><dt>Paartherapie</dt><dd>${eur(h.prices.paar)} · ${h.prices.minutes}&nbsp;Minuten</dd></div>
@@ -326,10 +326,10 @@ ${pageHero({ eyebrow: 'Kosten', title: 'Kosten der Psychotherapie', lead: 'Trans
     <p>Ich arbeite als Wahlpsychotherapeutin, also ohne direkte Verrechnung mit der Krankenkasse. Sie bezahlen das Honorar und erhalten eine Honorarnote, die Sie bei Ihrer Versicherung einreichen können.</p>
 
     <h2 class="heading-accent-plain">Kostenzuschuss der Krankenkassen</h2>
-    <p>Gesetzliche Krankenversicherungen in Österreich leisten unter bestimmten Voraussetzungen einen Zuschuss pro Sitzung:</p>
+    <p>Gesetzliche Krankenversicherungen in Österreich leisten unter bestimmten Voraussetzungen einen Zuschuss pro Einzeltherapie-Sitzung:</p>
     ${zuschussTable(h)}
 
-    <h2>So beantragen Sie die Rückerstattung</h2>
+    <h2 class="heading-accent">So beantragen Sie die Rückerstattung</h2>
     <ol class="steps">
       <li>Vor Beginn der Psychotherapie ist in der Regel eine ärztliche Untersuchung nötig. Von Ihrem Facharzt oder Allgemeinmediziner erhalten Sie eine „Bestätigung für Psychotherapie“. Diese benötigen Sie spätestens bis zur zweiten Therapiestunde, um die Rechnungen bei Ihrer Krankenkasse einreichen zu können.</li>
       <li>Zusammen mit der Bestätigung für Psychotherapie reichen Sie die bezahlten Honorarnoten bei Ihrer Krankenkasse ein, etwa online oder per Post.</li>
