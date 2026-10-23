@@ -314,7 +314,7 @@ const psychotherapie = {
   description: 'Systemische Einzeltherapie in 1090 Wien: wann Psychotherapie hilfreich sein kann, wie die Zusammenarbeit abläuft und was eine Sitzung kostet.',
   schema: [serviceSchema('Einzeltherapie', 'Systemische Einzeltherapie in 1090 Wien', '/psychotherapie/', 140)],
   body: (h) => `
-${pageHero({ eyebrow: 'Psychotherapie', title: 'Einzeltherapie in Wien', lead: 'Systemische Psychotherapie für Erwachsene in meiner Praxis in 1090&nbsp;Wien, in einem geschützten Rahmen und in Ihrem Tempo.' })}
+${pageHero({ eyebrow: 'Psychotherapie', title: 'Einzeltherapie in Wien', lead: 'Systemische Psychotherapie für Erwachsene, in einem geschützten Rahmen und in Ihrem Tempo.' })}
 <section class="section">
   <div class="wrap narrow prose">
     <h2 class="heading-accent">Wann Psychotherapie hilfreich sein kann</h2>
