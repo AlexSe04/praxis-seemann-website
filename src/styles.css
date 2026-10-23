@@ -420,7 +420,7 @@ details[open]::details-content { block-size: auto; }
 
 .cta-band { background: var(--sand); padding-block: clamp(2.25rem, 4.5vw, 3.5rem); }
 .cta-inner { display: flex; justify-content: space-between; align-items: center; gap: 2rem; flex-wrap: wrap; }
-.cta-title { font-family: var(--serif); font-size: clamp(1.6rem, 3vw, 2.2rem); margin-bottom: .3rem; }
+.cta-title { font-family: var(--serif); font-size: clamp(1.6rem, 3vw, 2.2rem); margin-bottom: .3rem; color: var(--accent); font-weight: 600; }
 .cta-inner p:not(.cta-title) { color: var(--ink-soft); margin: 0; }
 .cta-actions { display: flex; align-items: center; gap: 1.75rem; flex-wrap: wrap; }
 
