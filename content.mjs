@@ -106,7 +106,7 @@ const services = [
     text: 'Studium, Leistungsdruck, Veränderungen und persönliche Belastungen können viel Kraft kosten. Psychotherapie bietet Raum, Situationen zu ordnen und neue Handlungsmöglichkeiten zu entwickeln.'
   },
   {
-    title: 'Onlineberatung', price: 'online',
+    title: 'Onlineberatung',
     text: 'Psychotherapie kann ergänzend zu persönlichen Terminen in der Praxis auch online stattfinden. Eine flexible Möglichkeit, wenn persönliche Termine vor Ort zeitweise nicht oder nur schwer möglich sind. Online- und Präsenzsitzungen wechseln sich dabei ab.'
   }
 ];
@@ -137,7 +137,6 @@ const home = {
       <dl class="hero-prices">
         <div><dt>Einzeltherapie</dt><dd>${eur(h.prices.einzel)} / ${h.prices.minutes}&nbsp;Min.</dd></div>
         <div><dt>Paar- &amp; Familientherapie</dt><dd>${eur(h.prices.paar)} / ${h.prices.minutes}&nbsp;Min.</dd></div>
-        <div><dt>Online Einzelberatung</dt><dd>${eur(h.prices.online)} / ${h.prices.minutes}&nbsp;Min.</dd></div>
       </dl>
     </div>
     <div class="hero-ship" aria-hidden="true">
@@ -228,11 +227,6 @@ const home = {
         <p class="price-amount">${eur(h.prices.paar)}</p>
         <p class="price-unit">${h.prices.minutes} Minuten</p>
       </div>
-      <div class="price">
-        <h3>Online Einzelberatung</h3>
-        <p class="price-amount">${eur(h.prices.online)}</p>
-        <p class="price-unit">${h.prices.minutes} Minuten</p>
-      </div>
     </div>
     <div class="center">
       <a class="btn btn-large"${h.bookingAttrs}>Termin buchen</a>
@@ -308,6 +302,7 @@ const home = {
 // ---------- Unterseiten ----------
 const kosten = {
   path: '/kosten/',
+  bodyClass: 'page-kosten',
   crumb: 'Kosten & Rückerstattung',
   title: 'Psychotherapie Kosten Wien | Kostenzuschuss & Rückerstattung',
   ogTitle: 'Kosten der Psychotherapie in Wien – Zuschuss & Rückerstattung',
@@ -321,7 +316,6 @@ ${pageHero({ eyebrow: 'Kosten', title: 'Kosten der Psychotherapie' })}
       <div><dt>Einzeltherapie</dt><dd>${eur(h.prices.einzel)} · ${h.prices.minutes}&nbsp;Minuten</dd></div>
       <div><dt>Paartherapie</dt><dd>${eur(h.prices.paar)} · ${h.prices.minutes}&nbsp;Minuten</dd></div>
       <div><dt>Familientherapie</dt><dd>${eur(h.prices.paar)} · ${h.prices.minutes}&nbsp;Minuten</dd></div>
-      <div><dt>Online Einzelberatung</dt><dd>${eur(h.prices.online)} · ${h.prices.minutes}&nbsp;Minuten</dd></div>
     </dl>
     <p>Ich arbeite als Wahlpsychotherapeutin, also ohne direkte Verrechnung mit der Krankenkasse. Sie bezahlen das Honorar und erhalten eine Honorarnote, die Sie bei Ihrer Versicherung einreichen können.</p>
 
