@@ -107,7 +107,7 @@ const services = [
   },
   {
     title: 'Onlineberatung', price: 'online',
-    text: 'Psychotherapeutische Beratung kann auch online stattfinden. Eine flexible Möglichkeit, wenn persönliche Termine in der Praxis nicht oder nur schwer möglich sind.'
+    text: 'Psychotherapie kann ergänzend zu persönlichen Terminen in der Praxis auch online stattfinden. Eine flexible Möglichkeit, wenn persönliche Termine vor Ort zeitweise nicht oder nur schwer möglich sind. Online- und Präsenzsitzungen wechseln sich dabei ab.'
   }
 ];
 
