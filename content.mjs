@@ -341,7 +341,7 @@ ${pageHero({ eyebrow: 'Kosten', title: 'Kosten der Psychotherapie' })}
     <p>Manche private Krankenversicherungen übernehmen zusätzlich einen Teil der Kosten. Umfang und Bedingungen sind sehr unterschiedlich. Fragen Sie daher am besten vor Beginn der Therapie nach.</p>
 
     <h2 class="heading-accent">Versichert in Deutschland</h2>
-    <p>Wenn Sie in Wien studieren oder leben und in Deutschland krankenversichert sind, klären Sie bitte vor Beginn der Behandlung direkt mit Ihrer Versicherung, ob und in welchem Umfang Psychotherapiekosten in Österreich übernommen werden. Bei Fragen unterstütze ich Sie gerne.</p>
+    <p>Wenn Sie in Wien leben oder studieren und in Deutschland krankenversichert sind, erkundigen Sie sich bitte vor Beginn der Psychotherapie direkt bei Ihrer Krankenversicherung, welcher Antrag für die Kostenübernahme erforderlich ist und welche weiteren Unterlagen gegebenenfalls benötigt werden. In der Regel stellt Ihnen Ihre Versicherung das entsprechende Antragsformular zur Verfügung. Bei Fragen unterstütze ich Sie gerne.</p>
 
     <h2 class="heading-accent">Absage von Terminen</h2>
     <p>Absagen bis 24&nbsp;Stunden vor dem Termin sind kostenfrei, telefonisch unter <a href="${h.contact.phoneHref}">${h.contact.phone}</a> oder per E-Mail an <a href="${h.contact.emailHref}">${h.contact.email}</a>. Später abgesagte oder nicht wahrgenommene Termine werden in voller Höhe verrechnet.</p>
