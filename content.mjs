@@ -325,15 +325,15 @@ ${pageHero({ eyebrow: 'Kosten', title: 'Kosten der Psychotherapie', lead: 'Trans
     </dl>
     <p>Ich arbeite als Wahlpsychotherapeutin, also ohne direkte Verrechnung mit der Krankenkasse. Sie bezahlen das Honorar und erhalten eine Honorarnote, die Sie bei Ihrer Versicherung einreichen können.</p>
 
-    <h2>Kostenzuschuss der Krankenkassen</h2>
+    <h2 class="heading-accent-plain">Kostenzuschuss der Krankenkassen</h2>
     <p>Gesetzliche Krankenversicherungen in Österreich leisten unter bestimmten Voraussetzungen einen Zuschuss pro Sitzung:</p>
     ${zuschussTable(h)}
 
     <h2>So beantragen Sie die Rückerstattung</h2>
     <ol class="steps">
-      <li>Vor Beginn der Psychotherapie ist in der Regel eine ärztliche Untersuchung nötig. Fragen Sie bei Ihrer Versicherung nach, bis wann diese erfolgen muss.</li>
-      <li>Je nach Versicherung ist ab einer bestimmten Anzahl an Sitzungen ein Antrag auf Kostenzuschuss erforderlich. Diesen stelle ich bei Bedarf gemeinsam mit Ihnen.</li>
-      <li>Sie reichen die bezahlten Honorarnoten bei Ihrer Krankenkasse ein, etwa online oder per Post.</li>
+      <li>Vor Beginn der Psychotherapie ist in der Regel eine ärztliche Untersuchung nötig. Von Ihrem Facharzt oder Allgemeinmediziner erhalten Sie eine „Bestätigung für Psychotherapie“. Diese benötigen Sie spätestens bis zur zweiten Therapiestunde, um die Rechnungen bei Ihrer Krankenkasse einreichen zu können.</li>
+      <li>Zusammen mit der Bestätigung für Psychotherapie reichen Sie die bezahlten Honorarnoten bei Ihrer Krankenkasse ein, etwa online oder per Post.</li>
+      <li>Ab der zehnten Sitzung ist ein Antrag auf Kostenzuschuss erforderlich. Diesen stelle ich bei Bedarf gemeinsam mit Ihnen.</li>
     </ol>
     <p class="fineprint">Ein Anspruch auf Kostenzuschuss besteht nicht automatisch. Er setzt eine krankheitswertige Störung voraus; die Entscheidung trifft Ihre Versicherung.</p>
 
