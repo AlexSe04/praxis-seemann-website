@@ -140,7 +140,7 @@ p { margin: 0 0 .85em; text-wrap: pretty; }
 .brand:hover { color: var(--ink); }
 
 .main-nav ul { display: flex; gap: 1.9rem; list-style: none; margin: 0; padding: 0; }
-.main-nav a { text-decoration: none; font-size: .95rem; color: var(--ink-soft); position: relative; padding-block: .3rem; }
+.main-nav a { white-space: nowrap; text-decoration: none; font-size: .95rem; color: var(--ink-soft); position: relative; padding-block: .3rem; }
 .main-nav a::after {
   content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: currentColor;
   transform: scaleX(0); transform-origin: left; transition: transform .3s var(--ease);
@@ -164,7 +164,7 @@ p { margin: 0 0 .85em; text-wrap: pretty; }
 .menu-open .menu-icon::before { transform: translateY(7px) rotate(45deg); }
 .menu-open .menu-icon::after { transform: translateY(-7px) rotate(-45deg); }
 
-@media (max-width: 959px) {
+@media (max-width: 1099px) {
   :root { --header-h: 68px; }
   .is-compact .header-inner { height: 60px; }
   .header-inner { gap: 1rem; }
@@ -182,7 +182,7 @@ p { margin: 0 0 .85em; text-wrap: pretty; }
   .main-nav a::after { display: none; }
   html:not(.js) .main-nav { position: static; display: block; padding: 0; border: 0; }
 }
-@media (min-width: 960px) and (max-width: 1159px) {
+@media (min-width: 1100px) and (max-width: 1279px) {
   .header-inner { gap: 1.5rem; }
   .main-nav ul { gap: 1.25rem; }
   .brand-name { font-size: 1.2rem; }

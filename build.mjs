@@ -129,7 +129,8 @@ const nav = [
   ['Angebot', '/#angebot'],
   ['Über mich', '/#ueber-mich'],
   ['Kosten', '/#kosten'],
-  ['Praxis', '/#praxis']
+  ['Praxis', '/#praxis'],
+  ['Hilfe im Notfall', '/notfall/']
 ];
 
 function header() {
