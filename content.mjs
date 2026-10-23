@@ -3,7 +3,7 @@
 
 const eur = (n) => `€&nbsp;${n}`;
 
-import { SITE_URL } from './config.mjs';
+import { SITE_URL, ETERMIN_ENABLED } from './config.mjs';
 
 // ---------- Wiederverwendbare Bausteine ----------
 function zuschussTable(h) {
@@ -267,7 +267,7 @@ const home = {
     <div class="map" data-map="${h.contact.mapEmbedUrl}">
       <div class="map-consent">
         <p class="map-title">Standort auf Google Maps</p>
-        <p class="fineprint">Beim Laden der Karte werden Daten (u.&nbsp;a. Ihre IP-Adresse) an Google übertragen. <a href="/datenschutz/#google-maps">Mehr dazu</a></p>
+        <p class="fineprint">Die Karte wird von Google bereitgestellt. Erst wenn Sie auf „Karte laden“ klicken, werden Daten (u.&nbsp;a. Ihre IP-Adresse) an Google übertragen, möglicherweise auch in die USA. Ihre Auswahl wird nicht gespeichert. <a href="/datenschutz/#google-maps">Mehr dazu</a></p>
         <button type="button" class="btn btn-small" data-map-load>Karte laden</button>
         <a class="text-link" href="${h.profiles.google}" target="_blank" rel="noopener">In Google Maps öffnen</a>
       </div>
@@ -416,44 +416,122 @@ ${pageHero({ title: 'Impressum' })}
 </section>`
 };
 
+// Abschnitte der Datenschutzerklärung. Nummerierung ergibt sich automatisch,
+// damit der eTermin-Abschnitt ohne Lücken ein- und ausgeblendet werden kann.
+const dsSections = (h) => [
+  { id: 'verantwortliche', title: 'Verantwortliche', body: `
+    <p>Verantwortlich für die Verarbeitung personenbezogener Daten auf dieser Website und in meiner Praxis ist:</p>
+    <p>${h.person.name}<br>${h.contact.street}, ${h.contact.zip} ${h.contact.city}, Österreich<br>Telefon: <a href="${h.contact.phoneHref}">${h.contact.phone}</a><br>E-Mail: <a href="${h.contact.emailHref}">${h.contact.email}</a></p>` },
+  { id: 'allgemeines', title: 'Allgemeines', body: `
+    <p>Der Schutz Ihrer Daten ist mir – gerade in der Psychotherapie – ein besonderes Anliegen. Ich verarbeite personenbezogene Daten nach der Datenschutz-Grundverordnung (DSGVO), dem österreichischen Datenschutzgesetz (DSG), dem Telekommunikationsgesetz 2021 (TKG 2021) und dem Psychotherapiegesetz 2024 (PThG 2024).</p>
+    <p>Diese Erklärung unterscheidet drei Bereiche, die getrennt voneinander zu betrachten sind:</p>
+    <ul>
+      <li><strong>Besuch der Website</strong> – technisch notwendige Daten beim Aufruf der Seiten (Abschnitte {hosting} bis {cookies}).</li>
+      <li><strong>Kontakt und Terminvereinbarung</strong> – Ihre Angaben, wenn Sie mich anrufen oder mir schreiben${ETERMIN_ENABLED ? ' oder online einen Termin buchen' : ''}.</li>
+      <li><strong>Psychotherapeutische Behandlung</strong> – Daten, die im Rahmen einer Psychotherapie entstehen, einschließlich der gesetzlich vorgeschriebenen Dokumentation.</li>
+    </ul>
+    <p>Diese Website verwendet keine Analyse- oder Trackingdienste, keine Werbe- oder Marketing-Cookies und keine Social-Media-Plugins. Schriftarten und Skripte werden ausschließlich von dieser Website selbst geladen.</p>` },
+  { id: 'hosting', title: 'Hosting über Cloudflare', body: `
+    <p>Diese Website wird über den Dienst Cloudflare Pages der Cloudflare, Inc., 101 Townsend St., San Francisco, CA 94107, USA, bereitgestellt. Cloudflare speichert die Website-Dateien und liefert sie über ein weltweites Servernetz aus. Dabei wird die Verbindung zu Ihrem Gerät zwangsläufig über Server von Cloudflare hergestellt.</p>
+    <p>Cloudflare verarbeitet die Daten als Auftragsverarbeiter (Art.&nbsp;28 DSGVO) auf Grundlage der Vertragsbedingungen von Cloudflare einschließlich des Data Processing Addendum. Rechtsgrundlage ist mein berechtigtes Interesse an einer sicheren, stabilen und schnellen Bereitstellung der Website (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;f DSGVO). Zur Übermittlung in die USA siehe <a href="#drittland">Drittlandübermittlungen</a>.</p>` },
+  { id: 'logfiles', title: 'Server-Logfiles', body: `
+    <p>Bei jedem Aufruf der Website werden technisch notwendige Verbindungsdaten verarbeitet, insbesondere IP-Adresse, Datum und Uhrzeit, aufgerufene Adresse, übertragene Datenmenge, Referrer (die zuvor besuchte Seite, sofern Ihr Browser sie übermittelt) sowie Browser- und Betriebssystemangaben. Diese Daten sind nötig, um die Seiten auszuliefern, Störungen zu beheben und Angriffe abzuwehren.</p>
+    <p>Rechtsgrundlage ist Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;f DSGVO. Ich nutze diese Daten nicht, um Besucherinnen und Besucher zu identifizieren, Profile zu erstellen oder Reichweite zu messen, und führe sie nicht mit anderen Daten zusammen.</p>` },
+  { id: 'cookies', title: 'Cookies und Speichertechnologien', body: `
+    <p>Diese Website selbst setzt <strong>keine Cookies</strong> und speichert nichts im Local Storage, Session Storage oder in vergleichbaren Speichern Ihres Browsers. Das kleine Skript der Website dient nur der Bedienung (Menü, Kopfzeile, Einblendungen, Laden der Karte auf Klick) und legt keine Daten auf Ihrem Gerät ab. Ein Cookie-Banner ist daher nicht erforderlich.</p>
+    <div class="table-scroll" role="region" aria-labelledby="cookie-tabelle" tabindex="0">
+    <table class="data-table">
+      <caption id="cookie-tabelle">Übersicht der Speichertechnologien</caption>
+      <thead><tr><th scope="col">Technologie</th><th scope="col">Anbieter</th><th scope="col">Zweck</th><th scope="col">Kategorie</th><th scope="col">Dauer</th><th scope="col">Rechtsgrundlage</th><th scope="col">Drittland</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Keine Cookies, kein Local/Session Storage</th><td>Website</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td></tr>
+        <tr><th scope="row">Google Maps (nur nach Klick auf „Karte laden“)</th><td>Google Ireland Limited</td><td>Anzeige der Karte; Google kann dabei eigene Cookies oder ähnliche Technologien einsetzen</td><td>Externer Inhalt, einwilligungsbasiert</td><td>Festgelegt durch Google</td><td>Einwilligung (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;a DSGVO, §&nbsp;165 Abs.&nbsp;3 TKG 2021)</td><td>Möglich (USA)</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>Cloudflare kann aus Sicherheitsgründen in Einzelfällen technisch notwendige Cookies setzen (etwa zur Abwehr automatisierter Zugriffe). Solche Cookies dienen ausschließlich der Sicherheit, werden nicht für Analyse oder Werbung genutzt und sind nach §&nbsp;165 Abs.&nbsp;3 TKG 2021 ohne Einwilligung zulässig. Bei der Prüfung dieser Website wurden keine solchen Cookies festgestellt.</p>` },
+  { id: 'kontakt', title: 'Kontakt per Telefon und E-Mail', body: `
+    <p>Wenn Sie mich anrufen oder mir eine E-Mail schreiben, verarbeite ich die Angaben, die Sie mir mitteilen (z.&nbsp;B. Name, Telefonnummer, E-Mail-Adresse, Terminwünsche und Ihr Anliegen), um Ihre Anfrage zu beantworten und gegebenenfalls einen Termin zu vereinbaren.</p>
+    <p>Rechtsgrundlage ist die Durchführung vorvertraglicher Maßnahmen auf Ihre Anfrage (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;b DSGVO). Soweit Sie Angaben zu Ihrer Gesundheit machen – und schon die Anfrage nach einem Psychotherapietermin kann darauf schließen lassen –, verarbeite ich diese zur Gesundheitsversorgung unter Wahrung der Verschwiegenheitspflicht (Art.&nbsp;9 Abs.&nbsp;2 lit.&nbsp;h und Abs.&nbsp;3 DSGVO).</p>
+    <p>Die E-Mail-Adresse wird über Microsoft (Outlook.com) betrieben. Bitte beachten Sie, dass E-Mails in der Regel nicht durchgehend verschlüsselt übertragen werden. Senden Sie mir daher möglichst keine ausführlichen Gesundheitsinformationen per E-Mail; für eine erste Kontaktaufnahme genügen Name, Rückrufnummer und Terminwunsch.</p>` },
+  // eTermin: Dieser Abschnitt wird nur veröffentlicht, wenn ETERMIN_ENABLED=1 gesetzt ist (siehe config.mjs).
+  ETERMIN_ENABLED && { id: 'etermin', title: 'Online-Terminbuchung über eTermin', body: `
+    <p>Für die Online-Terminbuchung nutze ich den Dienst der eTermin GmbH, Mättivor 3, 6430 Schwyz, Schweiz. Über den Link „Termin buchen“ gelangen Sie auf die Buchungsseite von eTermin; diese wird nicht in meine Website eingebettet. Erst mit dem Aufruf dieser Seite werden Daten an eTermin übertragen.</p>
+    <p>Verarbeitet werden die Angaben, die Sie bei der Buchung eingeben, insbesondere Name und Kontaktdaten, der gewählte Termin, gegebenenfalls Ihre Nachricht an mich sowie technische Daten der Buchung. Pflichtfelder sind auf das Nötigste beschränkt; bitte machen Sie bei der Buchung keine Angaben zu Beschwerden oder Diagnosen.</p>
+    <p>Rechtsgrundlage ist die Durchführung vorvertraglicher Maßnahmen (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;b DSGVO). Da bereits die Buchung eines Psychotherapietermins einen Rückschluss auf Ihre Gesundheit zulassen kann, erfolgt die Verarbeitung zusätzlich nach Art.&nbsp;9 Abs.&nbsp;2 lit.&nbsp;h und Abs.&nbsp;3 DSGVO. Eine Cookie-Einwilligung ist nicht die Rechtsgrundlage für diese Buchungsdaten.</p>
+    <p>eTermin ist als Auftragsverarbeiter auf Grundlage eines Vertrags nach Art.&nbsp;28 DSGVO tätig (Stand des Vertrags: 05.09.2026, Version 07.2026 v6.2). Nach Angaben von eTermin werden die Daten bei Microsoft Azure im Rechenzentrum Frankfurt am Main gespeichert; Unterauftragsverarbeiter ist hierfür die Microsoft Ireland Operations Limited, Dublin, Irland. Die technischen und organisatorischen Maßnahmen sind im Vertrag festgelegt. Für die Schweiz besteht ein Angemessenheitsbeschluss der Europäischen Kommission (Art.&nbsp;45 DSGVO).</p>
+    <p>Auf der Buchungsseite gelten ergänzend die Datenschutzhinweise von eTermin. Wenn Sie nicht online buchen möchten, können Sie einen Termin jederzeit telefonisch oder per E-Mail vereinbaren.</p>` },
+  { id: 'gesundheitsdaten', title: 'Gesundheitsdaten und psychotherapeutische Behandlung', body: `
+    <p>Im Rahmen einer Psychotherapie verarbeite ich Gesundheitsdaten und weitere besonders geschützte Daten (Art.&nbsp;9 DSGVO), etwa Angaben zu Ihrer Lebenssituation, zum Behandlungsverlauf und zur Abrechnung. Dies erfolgt zur Durchführung der Behandlung und zur Erfüllung gesetzlicher Pflichten, insbesondere der Dokumentationspflicht nach dem PThG 2024.</p>
+    <p>Rechtsgrundlagen sind der Behandlungsvertrag (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;b DSGVO), rechtliche Verpflichtungen (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;c DSGVO) sowie Art.&nbsp;9 Abs.&nbsp;2 lit.&nbsp;h und Abs.&nbsp;3 DSGVO. Bestätigungen und Honorarnoten für Ihre Krankenkasse oder Versicherung stelle ich Ihnen aus; deren Weitergabe liegt bei Ihnen.</p>
+    <p>Die Behandlungsdokumentation ist von den Daten der Website getrennt. Sie wird weder über diese Website noch über ein Buchungssystem geführt.</p>` },
+  { id: 'verschwiegenheit', title: 'Verschwiegenheit', body: `
+    <p>Als Psychotherapeutin bin ich nach §&nbsp;45 PThG 2024 zur Verschwiegenheit über alle mir in Ausübung meines Berufes anvertrauten oder bekannt gewordenen Geheimnisse verpflichtet. Diese Pflicht gilt bereits ab der ersten Kontaktaufnahme und besteht auch nach Ende der Behandlung fort. Informationen gebe ich nur weiter, wenn Sie mich davon entbinden oder das Gesetz dies ausdrücklich vorsieht.</p>` },
+  { id: 'google-maps', title: 'Google Maps (Zwei-Klick-Lösung)', body: `
+    <p>Auf der Startseite kann eine Karte von Google Maps angezeigt werden. Anbieter ist die Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland. Die Karte wird <strong>nicht automatisch</strong> geladen. Bis zu Ihrem Klick auf „Karte laden“ wird keine Verbindung zu Google hergestellt.</p>
+    <p>Erst mit dem Klick werden Daten wie Ihre IP-Adresse, Datum und Uhrzeit, die Adresse dieser Seite und Browserangaben an Google übertragen. Google kann dabei Cookies oder ähnliche Technologien einsetzen und Daten auch in die USA übermitteln. Rechtsgrundlage ist Ihre Einwilligung durch den Klick (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;a DSGVO, §&nbsp;165 Abs.&nbsp;3 TKG 2021).</p>
+    <p>Ihre Auswahl wird nicht gespeichert: Beim nächsten Seitenaufruf ist die Karte wieder ausgeblendet. Alternativ können Sie den Standort über den Link „In Google Maps öffnen“ oder „Route planen“ direkt bei Google aufrufen oder die Adresse oben verwenden. Weitere Informationen: <a href="https://policies.google.com/privacy?hl=de" target="_blank" rel="noopener">Datenschutzerklärung von Google</a>.</p>` },
+  { id: 'externe-links', title: 'Externe Links', body: `
+    <p>Diese Website enthält Links zu anderen Angeboten, etwa zu meinem Google-Profil, zu LinkedIn, zur Routenplanung bei Google Maps, zu Notdiensten und Behörden. Diese Seiten werden erst aufgerufen, wenn Sie den Link anklicken; vorher werden keine Daten an diese Anbieter übertragen. Für die verlinkten Seiten sind deren Betreiber verantwortlich.</p>
+    <p>Links mit „tel:“ und „mailto:“ öffnen lediglich die Telefon- oder E-Mail-App Ihres Geräts.</p>` },
+  { id: 'empfaenger', title: 'Empfänger und Auftragsverarbeiter', body: `
+    <p>Ich gebe Ihre Daten nicht zu Werbezwecken weiter und verkaufe sie nicht. Empfänger können – jeweils nur im erforderlichen Umfang – sein:</p>
+    <ul>
+      <li>Cloudflare, Inc. als Hosting-Anbieter der Website (Auftragsverarbeiter);</li>
+      <li>Microsoft als Anbieter des E-Mail-Postfachs, wenn Sie mir schreiben;</li>${ETERMIN_ENABLED ? `
+      <li>eTermin GmbH als Anbieter der Online-Terminbuchung (Auftragsverarbeiter) samt Unterauftragsverarbeiter Microsoft Ireland Operations Limited;</li>` : ''}
+      <li>Google Ireland Limited, jedoch nur, wenn Sie die Karte laden;</li>
+      <li>Behörden, Gerichte oder Sozialversicherungsträger, soweit eine gesetzliche Pflicht besteht oder Sie dies veranlassen.</li>
+    </ul>` },
+  { id: 'drittland', title: 'Drittlandübermittlungen', body: `
+    <p>Bei Cloudflare, Microsoft und Google kann eine Übermittlung personenbezogener Daten in die USA nicht ausgeschlossen werden. Diese Unternehmen sind nach eigenen Angaben nach dem EU-US Data Privacy Framework zertifiziert, für das ein Angemessenheitsbeschluss der Europäischen Kommission besteht (Art.&nbsp;45 DSGVO).${ETERMIN_ENABLED ? ' Für die Schweiz (Sitz der eTermin GmbH) besteht ebenfalls ein Angemessenheitsbeschluss.' : ''}</p>` },
+  { id: 'speicherdauer', title: 'Speicherdauer', body: `
+    <p>Ich speichere personenbezogene Daten nur so lange, wie es für den jeweiligen Zweck erforderlich ist oder gesetzliche Pflichten es verlangen. Maßgeblich sind folgende Kriterien:</p>
+    <ul>
+      <li><strong>Logdaten der Website:</strong> so lange, wie es für Betrieb und Sicherheit nötig ist; die Speicherfristen richten sich nach den Vorgaben von Cloudflare.</li>
+      <li><strong>Anfragen per Telefon oder E-Mail:</strong> bis zur Erledigung Ihrer Anfrage; kommt es zu einer Behandlung, werden die Daten Teil der Behandlungsunterlagen.</li>${ETERMIN_ENABLED ? `
+      <li><strong>Buchungsdaten bei eTermin:</strong> so lange, wie es für Terminverwaltung und Nachweis erforderlich ist; danach werden sie gelöscht.</li>` : ''}
+      <li><strong>Behandlungsdokumentation und Abrechnungsunterlagen:</strong> für die Dauer der gesetzlichen Aufbewahrungspflichten (insbesondere nach PThG 2024 und Steuerrecht) sowie solange Ansprüche geltend gemacht werden können.</li>
+      <li><strong>Google Maps:</strong> Die Speicherdauer bei Google legt Google fest.</li>
+    </ul>` },
+  { id: 'rechte', title: 'Ihre Rechte', body: `
+    <p>Sie haben das Recht auf Auskunft (Art.&nbsp;15 DSGVO), Berichtigung (Art.&nbsp;16), Löschung (Art.&nbsp;17), Einschränkung der Verarbeitung (Art.&nbsp;18), Datenübertragbarkeit (Art.&nbsp;20) und Widerspruch gegen Verarbeitungen auf Grundlage berechtigter Interessen (Art.&nbsp;21). Gesetzliche Aufbewahrungspflichten können einer Löschung entgegenstehen. Wenden Sie sich dafür bitte an die oben genannten Kontaktdaten.</p>` },
+  { id: 'widerruf', title: 'Widerruf Ihrer Einwilligung', body: `
+    <p>Eine erteilte Einwilligung können Sie jederzeit mit Wirkung für die Zukunft widerrufen (Art.&nbsp;7 Abs.&nbsp;3 DSGVO). Die Einwilligung zum Laden von Google Maps gilt nur für den jeweiligen Seitenaufruf und wird nicht gespeichert; Sie widerrufen sie, indem Sie die Seite neu laden oder schließen. Die Rechtmäßigkeit der bis dahin erfolgten Verarbeitung bleibt unberührt.</p>` },
+  { id: 'beschwerde', title: 'Beschwerde bei der Datenschutzbehörde', body: `
+    <p>Wenn Sie der Ansicht sind, dass die Verarbeitung Ihrer Daten gegen Datenschutzrecht verstößt, können Sie sich bei der zuständigen Aufsichtsbehörde beschweren:</p>
+    <p>Österreichische Datenschutzbehörde<br>Barichgasse 40–42, 1030 Wien<br><a href="https://www.dsb.gv.at" target="_blank" rel="noopener">www.dsb.gv.at</a></p>
+    <p>Gerne können Sie sich vorher direkt an mich wenden.</p>` },
+  { id: 'aktualisierung', title: 'Aktualisierung', body: `
+    <p>Ich passe diese Datenschutzerklärung an, wenn sich die Website, die eingesetzten Dienste oder die Rechtslage ändern. Es gilt die jeweils hier veröffentlichte Fassung.</p>
+    <p>Stand: Oktober 2026</p>` }
+].filter(Boolean);
+
 const datenschutz = {
   path: '/datenschutz/',
   crumb: 'Datenschutz',
   title: 'Datenschutz | Psychotherapie Alexandra Seemann, 1090 Wien',
   description: 'Datenschutzerklärung der psychotherapeutischen Praxis von Mag.a Alexandra Seemann, BA pth., in 1090 Wien.',
   noindex: true,
-  body: (h) => `
+  body: (h) => {
+    const sections = dsSections(h);
+    const num = Object.fromEntries(sections.map((s, i) => [s.id, i + 1]));
+    const fill = (html) => html.replace(/\{(\w[\w-]*)\}/g, (m, id) => (id in num ? String(num[id]) : m));
+    return `
 ${pageHero({ title: 'Datenschutzerklärung' })}
 <section class="section">
   <div class="wrap narrow prose">
-    <h2>Verantwortliche</h2>
-    <p>${h.person.name}, ${h.contact.street}, ${h.contact.zip} ${h.contact.city}<br>E-Mail: <a href="${h.contact.emailHref}">${h.contact.email}</a> · Telefon: <a href="${h.contact.phoneHref}">${h.contact.phone}</a></p>
-
-    <h2>Grundsatz</h2>
-    <p>Diese Website verwendet keine Cookies, keine Analyse- oder Trackingdienste und keine Social-Media-Plugins. Eine Karte von Google Maps wird nur nach Ihrem Klick geladen (siehe unten). Schriftarten werden lokal von diesem Server geladen.</p>
-
-    <h2>Server-Logfiles</h2>
-    <p>Beim Aufruf der Website verarbeitet der Hosting-Anbieter technisch notwendige Daten (z.&nbsp;B. IP-Adresse, Datum und Uhrzeit, aufgerufene Seite, Browsertyp), um die Website sicher und stabil bereitzustellen. Rechtsgrundlage ist das berechtigte Interesse gemäß Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;f DSGVO. Die Daten werden nicht mit anderen Daten zusammengeführt und nach kurzer Zeit gelöscht.</p>
-
-    <h2>Kontaktaufnahme</h2>
-    <p>Wenn Sie mich per E-Mail oder Telefon kontaktieren, verarbeite ich Ihre Angaben zur Bearbeitung Ihrer Anfrage. Bitte beachten Sie, dass unverschlüsselte E-Mails nicht vollständig vor dem Zugriff Dritter geschützt sind. Senden Sie sensible Gesundheitsinformationen daher möglichst nicht per E-Mail.</p>
-
-    <h2>Online-Terminbuchung</h2>
-    <p>Für die Terminbuchung werden Sie zu einem externen Buchungsanbieter weitergeleitet. Dort gelten zusätzlich dessen Datenschutzbestimmungen.</p>
-
-    <h2>Psychotherapeutische Behandlung</h2>
-    <p>Im Rahmen der Psychotherapie verarbeite ich Gesundheitsdaten gemäß Art.&nbsp;9 Abs.&nbsp;2 lit.&nbsp;h DSGVO ausschließlich zur Behandlung und zur Erfüllung gesetzlicher Dokumentations- und Aufbewahrungspflichten. Alle Informationen unterliegen der Verschwiegenheitspflicht nach §&nbsp;45 Psychotherapiegesetz 2024.</p>
-
-    <h2 id="google-maps">Google Maps</h2>
-    <p>Auf der Startseite kann eine Karte von Google Maps (Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland) angezeigt werden. Die Karte wird erst geladen, wenn Sie auf „Karte laden“ klicken. Erst dann werden Daten wie Ihre IP-Adresse an Google übertragen, gegebenenfalls auch in die USA. Rechtsgrundlage ist Ihre Einwilligung gemäß Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;a DSGVO, die durch den Klick erteilt wird und durch Neuladen der Seite endet. Details: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>.</p>
-
-    <h2>Externe Links</h2>
-    <p>Links zu externen Seiten (z.&nbsp;B. „Route planen“, Google-Profil oder LinkedIn) werden erst durch Ihren Klick aufgerufen. Ab dann gelten die Datenschutzbestimmungen des jeweiligen Anbieters.</p>
-
-    <h2>Ihre Rechte</h2>
-    <p>Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch. Wenden Sie sich dafür an die oben genannte Adresse. Zudem können Sie Beschwerde bei der Österreichischen Datenschutzbehörde einreichen: Barichgasse 40–42, 1030 Wien, <a href="https://www.dsb.gv.at" target="_blank" rel="noopener">dsb.gv.at</a>.</p>
+    <nav class="toc" aria-labelledby="inhalt">
+      <h2 id="inhalt">Inhalt</h2>
+      <ol>
+        ${sections.map((s) => `<li><a href="#${s.id}">${s.title}</a></li>`).join('\n        ')}
+      </ol>
+    </nav>
+${sections.map((s, i) => `
+    <h2 id="${s.id}">${i + 1}. ${s.title}</h2>${fill(s.body)}`).join('\n')}
   </div>
-</section>`
+</section>`;
+  }
 };
 
 const notFound = {
