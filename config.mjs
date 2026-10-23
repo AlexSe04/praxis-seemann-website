@@ -55,7 +55,6 @@ export const intakt = {
 export const prices = {
   einzel: 140,
   paar: 180,
-  online: 120,
   minutes: 50
 };
 

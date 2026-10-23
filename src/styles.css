@@ -304,7 +304,7 @@ section[id] { scroll-margin-top: 72px; }
 
 /* Kosten */
 .price-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr); margin-bottom: clamp(2rem, 4vw, 3rem);
+  display: grid; grid-template-columns: repeat(2, 1fr); margin-bottom: clamp(2rem, 4vw, 3rem);
   border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
 }
 .price { padding: clamp(1.5rem, 3.5vw, 2.5rem) clamp(1rem, 3vw, 2.5rem); text-align: center; }
@@ -312,7 +312,7 @@ section[id] { scroll-margin-top: 72px; }
 .price h3 { font-size: clamp(1.1rem, 1.6vw, 1.25rem); margin-bottom: .75rem; }
 .price-amount { font-family: var(--serif); font-size: clamp(2.5rem, 5vw, 3.75rem); font-weight: 300; line-height: 1; margin: 0 0 .5rem; letter-spacing: -.02em; }
 .price-unit { color: var(--muted); margin: 0; }
-@media (max-width: 759px) {
+@media (max-width: 599px) {
   .price-grid { grid-template-columns: 1fr; }
   .price + .price { border-left: 0; border-top: 1px solid var(--line); }
 }
@@ -396,6 +396,7 @@ details[open]::details-content { block-size: auto; }
 /* ---------- Unterseiten ---------- */
 .page-hero { padding-block: clamp(2rem, 5vw, 4rem) 0; }
 .page-hero h1 { font-size: clamp(2rem, 4.2vw, 3.25rem); }
+.page-kosten .page-hero h1 { font-size: clamp(1.75rem, 3.2vw, 2.5rem); }
 .page-hero + .section { padding-top: clamp(1.75rem, 4vw, 3rem); }
 .prose h2 { font-size: clamp(1.4rem, 2.4vw, 1.75rem); margin-top: 1.6em; }
 .prose > h2:first-child, .prose .note h2 { margin-top: 0; }
