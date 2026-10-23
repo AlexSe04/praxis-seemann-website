@@ -106,7 +106,7 @@ const services = [
     text: 'Studium, Leistungsdruck, Veränderungen und persönliche Belastungen können viel Kraft kosten. Psychotherapie bietet Raum, Situationen zu ordnen und neue Handlungsmöglichkeiten zu entwickeln.'
   },
   {
-    title: 'Onlineberatung', href: '/onlineberatung/',
+    title: 'Onlineberatung', href: '/onlineberatung/', price: 'online',
     text: 'Psychotherapeutische Beratung kann auch online stattfinden. Eine flexible Möglichkeit, wenn persönliche Termine in der Praxis nicht oder nur schwer möglich sind.'
   }
 ];
@@ -137,6 +137,7 @@ const home = {
       <dl class="hero-prices">
         <div><dt>Einzeltherapie</dt><dd>${eur(h.prices.einzel)} / ${h.prices.minutes}&nbsp;Min.</dd></div>
         <div><dt>Paar- &amp; Familientherapie</dt><dd>${eur(h.prices.paar)} / ${h.prices.minutes}&nbsp;Min.</dd></div>
+        <div><dt>Online Einzelberatung</dt><dd>${eur(h.prices.online)} / ${h.prices.minutes}&nbsp;Min.</dd></div>
       </dl>
     </div>
     <div class="hero-ship" aria-hidden="true">
@@ -225,6 +226,11 @@ const home = {
       <div class="price">
         <h3>Paar- &amp; Familientherapie</h3>
         <p class="price-amount">${eur(h.prices.paar)}</p>
+        <p class="price-unit">${h.prices.minutes} Minuten</p>
+      </div>
+      <div class="price">
+        <h3>Online Einzelberatung</h3>
+        <p class="price-amount">${eur(h.prices.online)}</p>
         <p class="price-unit">${h.prices.minutes} Minuten</p>
       </div>
     </div>
@@ -450,7 +456,7 @@ const online = {
   title: 'Onlineberatung & Psychotherapie online | A. Seemann, Wien',
   ogTitle: 'Onlineberatung – Psychotherapie online',
   description: 'Psychotherapeutische Onlineberatung per Video mit Mag.a Alexandra Seemann, Psychotherapeutin in Wien. Wann sie sich eignet und was Sie dafür brauchen.',
-  schema: [serviceSchema('Onlineberatung', 'Psychotherapeutische Onlineberatung per Video', '/onlineberatung/')],
+  schema: [serviceSchema('Onlineberatung', 'Psychotherapeutische Onlineberatung per Video', '/onlineberatung/', 120)],
   body: (h) => `
 ${pageHero({ eyebrow: 'Psychotherapie online', title: 'Onlineberatung', lead: 'Psychotherapeutische Gespräche per Video – wenn ein Termin in der Praxis nicht oder nur schwer möglich ist.' })}
 <section class="section">
@@ -494,6 +500,7 @@ ${pageHero({ eyebrow: 'Kosten', title: 'Kosten der Psychotherapie', lead: 'Trans
       <div><dt>Einzeltherapie</dt><dd>${eur(h.prices.einzel)} · ${h.prices.minutes}&nbsp;Minuten</dd></div>
       <div><dt>Paartherapie</dt><dd>${eur(h.prices.paar)} · ${h.prices.minutes}&nbsp;Minuten</dd></div>
       <div><dt>Familientherapie</dt><dd>${eur(h.prices.paar)} · ${h.prices.minutes}&nbsp;Minuten</dd></div>
+      <div><dt>Online Einzelberatung</dt><dd>${eur(h.prices.online)} · ${h.prices.minutes}&nbsp;Minuten</dd></div>
     </dl>
     <p>Ich arbeite als Wahlpsychotherapeutin, also ohne direkte Verrechnung mit der Krankenkasse. Sie bezahlen das Honorar und erhalten eine Honorarnote, die Sie bei Ihrer Versicherung einreichen können.</p>
 

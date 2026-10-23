@@ -88,7 +88,7 @@ function baseGraph() {
       areaServed: { '@type': 'City', name: 'Wien' },
       hasMap: profiles.google,
       sameAs,
-      priceRange: `€ ${prices.einzel} – € ${prices.paar}`,
+      priceRange: `€ ${prices.online} – € ${prices.paar}`,
       currenciesAccepted: 'EUR',
       founder: { '@id': ids.person },
       employee: { '@id': ids.person },
@@ -100,7 +100,7 @@ function baseGraph() {
           offer('Paartherapie', prices.paar, '/paartherapie-wien/'),
           offer('Familientherapie', prices.paar, '/familientherapie-wien/'),
           offer('Psychotherapie für Studierende', prices.einzel, '/psychotherapie-studierende-wien/'),
-          offer('Onlineberatung', null, '/onlineberatung/')
+          offer('Onlineberatung', prices.online, '/onlineberatung/')
         ]
       }
     }
