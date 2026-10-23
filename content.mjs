@@ -266,7 +266,7 @@ const home = {
       </p>
     </div>
     <figure class="practice-photo reveal">
-      ${h.img('psychotherapie-praxis-1090-wien', 'Praxis für Psychotherapie in 1090 Wien', { sizes: '(min-width: 960px) 55vw, 100vw' })}
+      ${h.img('psychotherapie-praxis-1090-wien', 'Praxis für Psychotherapie in 1090 Wien', { sizes: '(min-width: 960px) 440px, 360px' })}
     </figure>
   </div>
   <div class="wrap">

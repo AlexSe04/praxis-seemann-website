@@ -327,8 +327,9 @@ section[id] { scroll-margin-top: 72px; }
 
 /* Praxis */
 .practice { background: var(--sand); }
-.practice-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
+.practice-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
 .address { font-family: var(--serif); font-size: clamp(1.3rem, 2vw, 1.6rem); line-height: 1.3; margin: 1rem 0 .75rem; }
+.practice-photo { justify-self: end; width: 100%; max-width: 440px; }
 .practice-photo img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 4px; }
 .transit-title { font-family: var(--sans); font-size: .78rem; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); font-weight: 500; margin: 1.5rem 0 .5rem; }
 .transit { margin: 0 0 1.5rem; border-top: 1px solid color-mix(in srgb, var(--ink) 14%, transparent); }
@@ -350,7 +351,7 @@ section[id] { scroll-margin-top: 72px; }
 .footer-profiles { display: flex; gap: 1.5rem; margin-top: 1.25rem; }
 @media (max-width: 859px) {
   .practice-grid { grid-template-columns: 1fr; }
-  .practice-photo { order: -1; }
+  .practice-photo { order: -1; justify-self: start; max-width: 360px; }
 }
 
 /* Accordion */
