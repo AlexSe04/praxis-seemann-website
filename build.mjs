@@ -96,11 +96,11 @@ function baseGraph() {
       hasOfferCatalog: {
         '@type': 'OfferCatalog', name: 'Psychotherapie in Wien',
         itemListElement: [
-          offer('Einzeltherapie', prices.einzel, '/psychotherapie/'),
-          offer('Paartherapie', prices.paar, '/paartherapie-wien/'),
-          offer('Familientherapie', prices.paar, '/familientherapie-wien/'),
-          offer('Psychotherapie für Studierende', prices.einzel, '/psychotherapie-studierende-wien/'),
-          offer('Onlineberatung', prices.online, '/onlineberatung/')
+          offer('Einzeltherapie', prices.einzel, '/#angebot'),
+          offer('Paartherapie', prices.paar, '/#angebot'),
+          offer('Familientherapie', prices.paar, '/#angebot'),
+          offer('Psychotherapie für Studierende', prices.einzel, '/#angebot'),
+          offer('Onlineberatung', prices.online, '/#angebot')
         ]
       }
     }
@@ -176,11 +176,11 @@ function footer() {
     <nav aria-label="Angebot">
       <p class="footer-title">Angebot</p>
       <ul>
-        <li><a href="/psychotherapie/">Einzeltherapie</a></li>
-        <li><a href="/paartherapie-wien/">Paartherapie in Wien</a></li>
-        <li><a href="/familientherapie-wien/">Familientherapie in Wien</a></li>
-        <li><a href="/psychotherapie-studierende-wien/">Psychotherapie für Studierende</a></li>
-        <li><a href="/onlineberatung/">Onlineberatung</a></li>
+        <li>Einzeltherapie</li>
+        <li>Paartherapie</li>
+        <li>Familientherapie</li>
+        <li>Psychotherapie für Studierende</li>
+        <li>Onlineberatung</li>
       </ul>
     </nav>
     <nav aria-label="Informationen">
@@ -272,6 +272,11 @@ writeFileSync(join(OUT, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>
 ${indexable.map((p) => `  <url><loc>${abs(p.path)}</loc><lastmod>${TODAY}</lastmod></url>`).join('\n')}
 </urlset>
 `);
+// Weiterleitungen für entfernte Unterseiten (Cloudflare Pages liest _redirects)
+writeFileSync(join(OUT, '_redirects'), [
+  '/psychotherapie/*', '/paartherapie-wien/*', '/familientherapie-wien/*',
+  '/psychotherapie-studierende-wien/*', '/onlineberatung/*', '/ueber-mich/*'
+].map((from) => `${from} /#angebot 301`).join('\n').replace('/ueber-mich/* /#angebot', '/ueber-mich/* /#ueber-mich') + '\n');
 writeFileSync(join(OUT, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${abs('/sitemap.xml')}\n`);
 
 if (!isExternalBooking) console.warn('Hinweis: BOOKING_URL ist nicht gesetzt – „Termin buchen“ verweist auf den Kontaktbereich.');

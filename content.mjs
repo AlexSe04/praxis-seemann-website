@@ -64,7 +64,7 @@ const faq = [
   },
   {
     q: 'Studieren in Wien mit deutscher Krankenversicherung',
-    a: '<p>Sie studieren in Wien und sind in Deutschland versichert? Bitte klären Sie möglichst vor Behandlungsbeginn direkt mit Ihrer Krankenversicherung, ob und in welchem Umfang Kosten für Psychotherapie in Österreich übernommen werden.</p><p><a class="text-link" href="/psychotherapie-studierende-wien/">Psychotherapie für Studierende in Wien</a></p>'
+    a: '<p>Sie studieren in Wien und sind in Deutschland versichert? Bitte klären Sie möglichst vor Behandlungsbeginn direkt mit Ihrer Krankenversicherung, ob und in welchem Umfang Kosten für Psychotherapie in Österreich übernommen werden.</p>'
   },
   {
     q: 'Terminabsage',
@@ -90,23 +90,23 @@ function accordion(items, group) {
 
 const services = [
   {
-    title: 'Einzeltherapie', href: '/psychotherapie/', price: 'einzel',
+    title: 'Einzeltherapie', price: 'einzel',
     text: 'Raum für persönliche Themen, Belastungen, Krisen und Veränderungsprozesse. Gemeinsam entwickeln wir neue Perspektiven und konkrete Möglichkeiten für Ihren Alltag.'
   },
   {
-    title: 'Paartherapie', href: '/paartherapie-wien/', price: 'paar',
+    title: 'Paartherapie', price: 'paar',
     text: 'Wenn Gespräche schwieriger werden, Konflikte sich wiederholen oder Nähe verloren geht, kann Paartherapie helfen, Muster zu verstehen und neue Wege miteinander zu entwickeln.'
   },
   {
-    title: 'Familientherapie', href: '/familientherapie-wien/', price: 'paar',
+    title: 'Familientherapie', price: 'paar',
     text: 'Familientherapie unterstützt dabei, festgefahrene Dynamiken sichtbar zu machen, Kommunikation zu verbessern und gemeinsam tragfähige Lösungen zu entwickeln.'
   },
   {
-    title: 'Psychotherapie für Studierende', href: '/psychotherapie-studierende-wien/',
+    title: 'Psychotherapie für Studierende',
     text: 'Studium, Leistungsdruck, Veränderungen und persönliche Belastungen können viel Kraft kosten. Psychotherapie bietet Raum, Situationen zu ordnen und neue Handlungsmöglichkeiten zu entwickeln.'
   },
   {
-    title: 'Onlineberatung', href: '/onlineberatung/', price: 'online',
+    title: 'Onlineberatung', price: 'online',
     text: 'Psychotherapeutische Beratung kann auch online stattfinden. Eine flexible Möglichkeit, wenn persönliche Termine in der Praxis nicht oder nur schwer möglich sind.'
   }
 ];
@@ -178,14 +178,14 @@ const home = {
     </div>
     <ul class="services">
       ${services.map((s, i) => `<li class="service reveal">
-        <a href="${s.href}" class="service-link">
+        <div class="service-link">
           <span class="service-no" aria-hidden="true">0${i + 1}</span>
           <div class="service-main">
             <h3>${s.title}</h3>
             <p class="service-text">${s.text}</p>
           </div>
-          <span class="service-meta">${s.price ? `${eur(h.prices[s.price])} · ${h.prices.minutes}&nbsp;Minuten` : ''}<span class="arrow" aria-hidden="true">→</span></span>
-        </a>
+          <span class="service-meta">${s.price ? `${eur(h.prices[s.price])} · ${h.prices.minutes}&nbsp;Minuten` : ''}</span>
+        </div>
       </li>`).join('\n      ')}
     </ul>
   </div>
@@ -243,7 +243,7 @@ const home = {
 <section class="section refund" id="krankenkasse">
   <div class="wrap narrow">
     <h2>Rückerstattung durch die Krankenkasse</h2>
-    <p>Bei Vorliegen der Voraussetzungen können Sie einen Teil der Kosten bei Ihrer gesetzlichen Krankenversicherung einreichen.</p>
+    <p>Bei Vorliegen der Voraussetzungen können Sie einen Teil der Kosten für Einzeltherapie bei Ihrer gesetzlichen Krankenversicherung einreichen.</p>
     ${zuschussTable(h)}
     <p><a class="text-link" href="/kosten/">Kosten, Kostenzuschuss und Einreichung im Detail</a></p>
   </div>
@@ -306,185 +306,6 @@ const home = {
 };
 
 // ---------- Unterseiten ----------
-const psychotherapie = {
-  path: '/psychotherapie/',
-  crumb: 'Einzeltherapie',
-  title: 'Einzeltherapie Wien | Systemische Psychotherapie, 1090 Wien',
-  ogTitle: 'Einzeltherapie in Wien – Systemische Psychotherapie',
-  description: 'Systemische Einzeltherapie in 1090 Wien: wann Psychotherapie hilfreich sein kann, wie die Zusammenarbeit abläuft und was eine Sitzung kostet.',
-  schema: [serviceSchema('Einzeltherapie', 'Systemische Einzeltherapie in 1090 Wien', '/psychotherapie/', 140)],
-  body: (h) => `
-${pageHero({ eyebrow: 'Psychotherapie', title: 'Einzeltherapie in Wien', lead: 'Systemische Psychotherapie für Erwachsene, in einem geschützten Rahmen und in Ihrem Tempo.' })}
-<section class="section">
-  <div class="wrap narrow prose">
-    <h2 class="heading-accent">Wann Psychotherapie hilfreich sein kann</h2>
-    <p>Psychotherapie kann unterstützen, wenn belastende Situationen länger andauern, akute Herausforderungen auftreten oder der Alltag zunehmend schwerfällt. Auch in Phasen der Unsicherheit, bei wichtigen Entscheidungen oder wenn man gerade nicht weiß, wie es weitergehen soll, kann Therapie hilfreich sein, Klarheit und neue Perspektiven zu gewinnen. Mögliche Anliegen sind zum Beispiel:</p>
-    <ul class="list">
-      <li>Krisen, Verluste und Lebensübergänge</li>
-      <li>Ängste, Erschöpfung oder anhaltende Niedergeschlagenheit</li>
-      <li>Selbstwert, Leistungsdruck und Stress</li>
-      <li>Belastungen in Beziehungen, Familie oder Beruf</li>
-      <li>Essstörungen und ein belastetes Verhältnis zu Essen und Körper</li>
-    </ul>
-    <p>Sie müssen Ihr Anliegen vorab nicht genau benennen können. Oft wird gerade im Gespräch deutlicher, worum es eigentlich geht.</p>
-
-    <h2>Wie ich systemisch arbeite</h2>
-    <p>In der Systemischen Einzeltherapie richten wir den Blick nicht nur auf das Problem, sondern auch auf Zusammenhänge: Welche Beziehungen, Erfahrungen und Umstände spielen eine Rolle? Was hat bisher geholfen? Daraus entstehen neue Perspektiven und konkrete nächste Schritte.</p>
-
-    <h2>Ablauf</h2>
-    <ol class="steps">
-      <li><strong>Kennenlernen.</strong> Im ersten Termin klären wir Ihr Anliegen, Ihre Fragen und ob die Zusammenarbeit für Sie passt.</li>
-      <li><strong>Ziele und Rahmen.</strong> Gemeinsam vereinbaren wir Ziele sowie Frequenz der Sitzungen.</li>
-      <li><strong>Therapeutischer Prozess.</strong> Eine Sitzung dauert ${h.prices.minutes}&nbsp;Minuten. Den Verlauf besprechen wir regelmäßig und passen ihn an Ihren Bedarf an.</li>
-    </ol>
-
-    <p>Eine Sitzung Einzeltherapie kostet ${eur(h.prices.einzel)}. Informationen zum Kostenzuschuss finden Sie unter <a href="/kosten/">Kosten &amp; Rückerstattung</a>. Termine sind auch als <a href="/onlineberatung/">Onlineberatung</a> möglich.</p>
-  </div>
-</section>
-${ctaBand(h, { text: `Einzeltherapie ${eur(h.prices.einzel)} · ${h.prices.minutes}&nbsp;Minuten · Gussenbauergasse 1/21, 1090&nbsp;Wien` })}`
-};
-
-const paartherapie = {
-  path: '/paartherapie-wien/',
-  crumb: 'Paartherapie',
-  title: 'Paartherapie Wien | Systemische Paartherapie – A. Seemann',
-  ogTitle: 'Paartherapie in Wien – Systemische Paartherapie in 1090 Wien',
-  description: 'Systemische Paartherapie in 1090 Wien: bei wiederkehrenden Konflikten, Kommunikationsschwierigkeiten und Veränderungen in der Beziehung. € 180 pro 50 Minuten.',
-  schema: [serviceSchema('Paartherapie', 'Systemische Paartherapie in 1090 Wien', '/paartherapie-wien/', 180)],
-  body: (h) => `
-${pageHero({ eyebrow: 'Systemische Paartherapie', title: 'Paartherapie in Wien', lead: 'Ein gemeinsamer Raum, um festgefahrene Muster zu verstehen und wieder miteinander ins Gespräch zu kommen.' })}
-<section class="section">
-  <div class="wrap narrow prose">
-    <h2>Wenn sich Konflikte wiederholen</h2>
-    <p>Viele Paare kennen das: Dieselben Streitpunkte kehren wieder, Gespräche enden schnell in Vorwürfen oder werden ganz vermieden. In der Paartherapie schauen wir gemeinsam darauf, wie diese Muster entstehen und was sie aufrechterhält.</p>
-
-    <h2>Kommunikation</h2>
-    <p>Oft geht es weniger um das Thema selbst als um die Art, wie darüber gesprochen wird. Paartherapie bietet einen Rahmen, in dem beide Sichtweisen Platz haben und Neues ausprobiert werden kann.</p>
-
-    <h2>Veränderungen in der Beziehung</h2>
-    <p>Ein gemeinsames Kind, ein Umzug, berufliche Veränderungen, Krankheit oder eine Krise wie eine Affäre: Übergänge stellen Beziehungen vor neue Fragen und verlangen neue Absprachen.</p>
-
-    <h2>Nähe und Distanz</h2>
-    <p>Wie viel Nähe, Zeit für sich und Intimität sich jede:r wünscht, kann sich mit den Jahren unterschiedlich entwickeln. Diese Unterschiede besprechbar zu machen, ist häufig ein wichtiger Schritt.</p>
-
-    <h2>Gemeinsame Lösungswege</h2>
-    <p>Ziel ist nicht, eine Seite recht zu geben. Gemeinsam erarbeiten wir, was Sie beide brauchen und welche Schritte für Ihre Beziehung möglich sind – auch dann, wenn die Frage im Raum steht, wie es weitergehen soll.</p>
-
-    <h2>Rahmen</h2>
-    <p>Paartherapie findet in meiner Praxis in 1090&nbsp;Wien statt, auf Wunsch auch <a href="/onlineberatung/">online</a>. Eine Sitzung dauert ${h.prices.minutes}&nbsp;Minuten und kostet ${eur(h.prices.paar)}. Zur Frage der Rückerstattung siehe <a href="/kosten/">Kosten &amp; Rückerstattung</a>.</p>
-  </div>
-</section>
-${ctaBand(h, { text: `Paartherapie ${eur(h.prices.paar)} · ${h.prices.minutes}&nbsp;Minuten · 1090&nbsp;Wien` })}`
-};
-
-const familientherapie = {
-  path: '/familientherapie-wien/',
-  crumb: 'Familientherapie',
-  title: 'Familientherapie Wien | Systemische Familientherapie 1090',
-  ogTitle: 'Familientherapie in Wien – Systemische Familientherapie',
-  description: 'Systemische Familientherapie in 1090 Wien: bei Konflikten, unterschiedlichen Bedürfnissen und Veränderungen in der Familie. € 180 pro 50 Minuten.',
-  schema: [serviceSchema('Familientherapie', 'Systemische Familientherapie in 1090 Wien', '/familientherapie-wien/', 180)],
-  body: (h) => `
-${pageHero({ eyebrow: 'Systemische Familientherapie', title: 'Familientherapie in Wien', lead: 'Wenn in einer Familie vieles festgefahren scheint, kann ein gemeinsamer Blick von außen neue Bewegung ermöglichen.' })}
-<section class="section">
-  <div class="wrap narrow prose">
-    <h2>Konflikte innerhalb der Familie</h2>
-    <p>Streit zwischen Eltern und Kindern, Spannungen zwischen Geschwistern oder Konflikte über Generationen hinweg: In der Familientherapie haben alle Beteiligten die Möglichkeit, ihre Sicht einzubringen.</p>
-
-    <h2>Unterschiedliche Bedürfnisse</h2>
-    <p>Jedes Familienmitglied bringt eigene Wünsche, Sorgen und Erwartungen mit. Diese nebeneinander stehen zu lassen und gemeinsam auszuhandeln, entlastet häufig alle.</p>
-
-    <h2>Veränderungen</h2>
-    <p>Die Geburt eines Kindes, Pubertät, Trennung, eine neue Patchwork-Konstellation, Krankheit oder der Auszug der Kinder: Familien müssen sich immer wieder neu organisieren.</p>
-
-    <h2>Kommunikation</h2>
-    <p>Wer spricht mit wem, worüber wird geschwiegen, wie werden Entscheidungen getroffen? Wir sehen uns gemeinsam an, wie in Ihrer Familie kommuniziert wird und was sich verändern darf.</p>
-
-    <h2>Systemische Zusammenhänge</h2>
-    <p>Die Systemische Therapie versteht Schwierigkeiten Einzelner als Teil eines größeren Zusammenhangs. Zeigt ein Familienmitglied Symptome – etwa eine Essstörung –, betrifft das die ganze Familie. Gleichzeitig liegen dort oft wichtige Ressourcen für Veränderung.</p>
-
-    <h2>Rahmen</h2>
-    <p>Wer zu den Sitzungen kommt, besprechen wir gemeinsam – nicht immer müssen alle anwesend sein. Eine Sitzung dauert ${h.prices.minutes}&nbsp;Minuten und kostet ${eur(h.prices.paar)}. Mehr zu <a href="/kosten/">Kosten &amp; Rückerstattung</a>.</p>
-  </div>
-</section>
-${ctaBand(h, { text: `Familientherapie ${eur(h.prices.paar)} · ${h.prices.minutes}&nbsp;Minuten · 1090&nbsp;Wien` })}`
-};
-
-const studierende = {
-  path: '/psychotherapie-studierende-wien/',
-  crumb: 'Psychotherapie für Studierende',
-  title: 'Psychotherapie für Studierende in Wien | 1090 Wien',
-  ogTitle: 'Psychotherapie für Studierende in Wien',
-  description: 'Psychotherapie für Studierende in Wien – bei Studienbelastung, Leistungsdruck und Krisen. Mit Hinweisen für Studierende aus Deutschland mit deutscher Krankenversicherung.',
-  schema: [serviceSchema('Psychotherapie für Studierende', 'Psychotherapie für Studierende in Wien', '/psychotherapie-studierende-wien/', 140)],
-  body: (h) => `
-${pageHero({ eyebrow: 'Studium & Psychotherapie', title: 'Psychotherapie für Studierende in Wien', lead: 'Unterstützung in einer Lebensphase, die viele Chancen bietet – und oft mehr Druck, als von außen sichtbar ist.' })}
-<section class="section">
-  <div class="wrap narrow prose">
-    <p>Meine Praxis liegt im 9.&nbsp;Bezirk, in unmittelbarer Nähe zu Universität Wien, AKH und vielen Instituten. Psychotherapie kann helfen, wenn das Studium oder das Leben daneben zu viel wird.</p>
-
-    <h2>Belastungen im Studium</h2>
-    <p>Prüfungsphasen, Abschlussarbeiten, finanzielle Sorgen oder die Doppelbelastung durch Studium und Job können auf Dauer erschöpfen.</p>
-
-    <h2>Leistungsdruck</h2>
-    <p>Hohe Erwartungen an sich selbst, Vergleiche mit anderen, Prüfungsangst oder Aufschieben: In der Therapie geht es darum, diese Muster zu verstehen und einen tragfähigeren Umgang damit zu finden.</p>
-
-    <h2>Persönliche Krisen</h2>
-    <p>Trennungen, Zweifel am Studienfach, familiäre Belastungen oder psychische Beschwerden lassen sich nicht immer neben dem Studium „mitlaufen“. Psychotherapie bietet Raum, die Situation zu ordnen.</p>
-
-    <h2>Veränderungen und Neuanfang</h2>
-    <p>Der Beginn des Studiums, der Wechsel ins Berufsleben oder ein Auslandsaufenthalt sind Übergänge, die Orientierung brauchen.</p>
-
-    <h2>Studieren fern vom Heimatort</h2>
-    <p>Wer zum Studieren nach Wien gezogen ist, muss sich ein neues Umfeld aufbauen. Einsamkeit, Heimweh oder fehlende Unterstützung vor Ort sind häufige Themen. Für Semesterferien oder Zeiten zu Hause kann <a href="/onlineberatung/">Onlineberatung</a> eine Möglichkeit sein, die Therapie fortzusetzen.</p>
-
-    <h2>Kosten</h2>
-    <p>Es gelten die regulären Tarife: Einzeltherapie ${eur(h.prices.einzel)} pro ${h.prices.minutes}&nbsp;Minuten. Wenn Sie in Österreich versichert sind, können Sie unter bestimmten Voraussetzungen einen <a href="/kosten/">Kostenzuschuss</a> beantragen.</p>
-
-    <div class="note">
-      <h2>In Deutschland krankenversichert?</h2>
-      <p>Wenn Sie in Wien studieren und in Deutschland krankenversichert sind, klären Sie bitte vor Beginn der Behandlung direkt mit Ihrer Versicherung, ob und in welchem Umfang Psychotherapiekosten in Österreich übernommen werden.</p>
-    </div>
-  </div>
-</section>
-${ctaBand(h, { text: `Einzeltherapie ${eur(h.prices.einzel)} · ${h.prices.minutes}&nbsp;Minuten · nahe Universität Wien, 1090&nbsp;Wien` })}`
-};
-
-const online = {
-  path: '/onlineberatung/',
-  crumb: 'Onlineberatung',
-  title: 'Onlineberatung & Psychotherapie online | A. Seemann, Wien',
-  ogTitle: 'Onlineberatung – Psychotherapie online',
-  description: 'Psychotherapeutische Onlineberatung per Video mit Mag.a Alexandra Seemann, Psychotherapeutin in Wien. Wann sie sich eignet und was Sie dafür brauchen.',
-  schema: [serviceSchema('Onlineberatung', 'Psychotherapeutische Onlineberatung per Video', '/onlineberatung/', 120)],
-  body: (h) => `
-${pageHero({ eyebrow: 'Psychotherapie online', title: 'Onlineberatung', lead: 'Psychotherapeutische Gespräche per Video – wenn ein Termin in der Praxis nicht oder nur schwer möglich ist.' })}
-<section class="section">
-  <div class="wrap narrow prose">
-    <h2>Für wen Onlineberatung passen kann</h2>
-    <ul class="list">
-      <li>bei längeren Anfahrtswegen oder eingeschränkter Mobilität</li>
-      <li>bei beruflichen Reisen, Auslandssemestern oder Zeiten außerhalb Wiens</li>
-      <li>wenn Kinderbetreuung oder Arbeitszeiten einen Praxistermin erschweren</li>
-      <li>zur Überbrückung, wenn eine laufende Therapie sonst unterbrochen würde</li>
-    </ul>
-    <p>Persönliche Termine in der Praxis und Online-Termine lassen sich auch kombinieren.</p>
-
-    <h2>Was Sie brauchen</h2>
-    <ul class="list">
-      <li>eine stabile Internetverbindung und ein Gerät mit Kamera und Mikrofon</li>
-      <li>einen ruhigen Raum, in dem Sie ungestört sprechen können</li>
-      <li>idealerweise Kopfhörer</li>
-    </ul>
-    <p>Die technischen Details besprechen wir vor dem ersten Online-Termin.</p>
-
-    <h2>Grenzen der Onlineberatung</h2>
-    <p>In akuten Krisen ist Onlineberatung nicht das passende Format. Wenn Sie sofort Unterstützung brauchen, finden Sie unter <a href="/notfall/">Hilfe im Notfall</a> Stellen, die rund um die Uhr erreichbar sind.</p>
-  </div>
-</section>
-${ctaBand(h)}`
-};
-
 const kosten = {
   path: '/kosten/',
   crumb: 'Kosten & Rückerstattung',
@@ -520,7 +341,7 @@ ${pageHero({ eyebrow: 'Kosten', title: 'Kosten der Psychotherapie', lead: 'Trans
     <p>Manche private Krankenversicherungen übernehmen zusätzlich einen Teil der Kosten. Umfang und Bedingungen sind sehr unterschiedlich – fragen Sie am besten vor Beginn der Therapie nach.</p>
 
     <h2>Versichert in Deutschland</h2>
-    <p>Für Studierende und andere Personen mit deutscher Krankenversicherung gelten eigene Regeln. Mehr dazu unter <a href="/psychotherapie-studierende-wien/">Psychotherapie für Studierende in Wien</a>.</p>
+    <p>Wenn Sie in Wien studieren oder leben und in Deutschland krankenversichert sind, klären Sie bitte vor Beginn der Behandlung direkt mit Ihrer Versicherung, ob und in welchem Umfang Psychotherapiekosten in Österreich übernommen werden.</p>
 
     <h2>Absage von Terminen</h2>
     <p>Absagen bis 24&nbsp;Stunden vor dem Termin sind kostenfrei, telefonisch unter <a href="${h.contact.phoneHref}">${h.contact.phone}</a> oder per E-Mail an <a href="${h.contact.emailHref}">${h.contact.email}</a>. Später abgesagte oder nicht wahrgenommene Termine werden in voller Höhe verrechnet.</p>
@@ -653,15 +474,4 @@ ${pageHero({ title: 'Seite nicht gefunden', lead: 'Die gesuchte Seite existiert 
 <section class="section"><div class="wrap narrow"><p><a class="text-link" href="/">Zur Startseite</a></p></div></section>`
 };
 
-function serviceSchema(name, description, path, price) {
-  const s = {
-    '@type': 'Service', name, serviceType: name, description,
-    url: SITE_URL + path,
-    areaServed: { '@type': 'City', name: 'Wien' },
-    provider: { '@id': `${SITE_URL}/#praxis` }
-  };
-  if (price) s.offers = { '@type': 'Offer', price: String(price), priceCurrency: 'EUR', description: '50 Minuten' };
-  return s;
-}
-
-export const pages = [home, psychotherapie, paartherapie, familientherapie, studierende, online, kosten, notfall, impressum, datenschutz, notFound];
+export const pages = [home, kosten, notfall, impressum, datenschutz, notFound];
