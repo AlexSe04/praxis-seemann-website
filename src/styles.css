@@ -262,7 +262,8 @@ section[id] { scroll-margin-top: 72px; }
 .intro { padding-top: 0; }
 .intro .wrap { border-top: 1px solid var(--line); padding-top: var(--section); }
 .intro h2 { color: var(--sandgold); }
-#gut-zu-wissen h2, #kontakt h2 { color: var(--accent); }
+#gut-zu-wissen h2, #kontakt h2, #kosten h2, #krankenkasse h2, #praxis h2 { color: var(--accent); }
+#ueber-mich h2 { color: var(--sandgold); }
 .intro .lead { margin: 0 auto; max-width: 38em; color: var(--ink); font-size: clamp(1rem, 1.4vw, 1.125rem); }
 
 /* Angebot */
@@ -274,14 +275,10 @@ section[id] { scroll-margin-top: 72px; }
   border-radius: 4px;
   transition: background-color .35s var(--ease);
 }
-.service-link:hover { background: var(--sand); color: inherit; }
 .service-no { font-family: var(--serif); font-style: italic; color: var(--clay); font-size: 1.05rem; }
 .service-main h3 { margin: 0 0 .35rem; color: var(--accent); font-weight: 600; transition: transform .35s var(--ease); }
-.service-link:hover h3 { transform: translateX(4px); }
 .service-text { color: var(--ink-soft); max-width: 40em; margin: 0; }
 .service-meta { white-space: nowrap; font-size: .95rem; color: var(--ink-soft); display: flex; align-items: baseline; gap: 1.25rem; font-variant-numeric: tabular-nums; }
-.arrow { font-size: 1.2rem; color: var(--accent); transition: transform .35s var(--ease); }
-.service-link:hover .arrow { transform: translateX(6px); }
 @media (max-width: 759px) {
   .service-link { grid-template-columns: 1fr; gap: .3rem; padding: 1.25rem .25rem; margin-inline: -.25rem; }
   .service-no { font-size: .95rem; }
