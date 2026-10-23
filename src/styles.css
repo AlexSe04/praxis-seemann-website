@@ -261,9 +261,9 @@ section[id] { scroll-margin-top: 72px; }
 /* Intro */
 .intro { padding-top: 0; }
 .intro .wrap { border-top: 1px solid var(--line); padding-top: var(--section); }
-.intro h2 { color: var(--sandgold); }
+.intro h2 { color: var(--clay); }
 #gut-zu-wissen h2, #kontakt h2, #krankenkasse h2 { color: var(--accent); }
-#ueber-mich h2 { color: var(--sandgold); }
+#ueber-mich h2 { color: var(--clay); }
 .intro .lead { margin: 0 auto; max-width: 38em; color: var(--ink); font-size: clamp(1rem, 1.4vw, 1.125rem); }
 
 /* Angebot */
