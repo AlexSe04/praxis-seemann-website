@@ -292,7 +292,7 @@ const home = {
   <div class="wrap contact-grid">
     <div>
       <h2>Kontakt</h2>
-      <p class="contact-hint">Für einen Therapietermin nutzen Sie bitte die <a class="text-link" ${h.bookingAttrs.trim()}>Online-Terminbuchung</a>. Für Fragen erreichen Sie mich telefonisch oder per E-Mail.</p>
+      <p class="contact-hint">Für einen Therapietermin nutzen Sie bitte die <a class="text-link" ${h.bookingAttrs.trim()}>Online-Terminbuchung</a>. Für Fragen erreichen Sie mich telefonisch Mo&nbsp;–&nbsp;Do 09:00&nbsp;Uhr bis 17:00&nbsp;Uhr oder per E-Mail.</p>
     </div>
     <address class="contact-card">
       <strong>${h.person.name}</strong><br>
