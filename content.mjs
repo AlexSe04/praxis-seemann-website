@@ -52,7 +52,7 @@ const faq = [
   },
   {
     q: 'Was ist Psychotherapie?',
-    a: '<p>Psychotherapie ist eine wissenschaftlich fundierte Behandlung psychischer Belastungen und Erkrankungen. Eine vertrauensvolle therapeutische Beziehung bildet die Grundlage, um schwierige Erfahrungen zu verstehen, neue Perspektiven zu entwickeln und nachhaltige Veränderungen zu ermöglichen. Regelmäßigkeit und ausreichend Zeit können diesen Prozess unterstützen.</p>'
+    a: '<p>Psychotherapie ist eine wissenschaftlich fundierte Behandlungsmethode psychischer Belastungen und Erkrankungen. Eine vertrauensvolle therapeutische Beziehung bildet die Grundlage, um schwierige Erfahrungen zu verstehen, neue Perspektiven zu entwickeln und nachhaltige Veränderungen zu ermöglichen. Regelmäßigkeit und ausreichend Zeit können diesen Prozess unterstützen.</p>'
   },
   {
     q: 'Wie lange dauert eine Psychotherapie?',
