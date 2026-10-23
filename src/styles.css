@@ -398,6 +398,7 @@ details[open]::details-content { block-size: auto; }
 .page-hero + .section { padding-top: clamp(1.75rem, 4vw, 3rem); }
 .prose h2 { font-size: clamp(1.4rem, 2.4vw, 1.75rem); margin-top: 1.6em; }
 .prose > h2:first-child, .prose .note h2 { margin-top: 0; }
+.heading-accent { color: var(--accent); font-weight: 600; }
 .prose a:not(.btn):not(.text-link) { color: var(--accent); }
 .list { padding-left: 1.2rem; margin: 0 0 1.2em; }
 .list li { margin-bottom: .4rem; padding-left: .3rem; }
