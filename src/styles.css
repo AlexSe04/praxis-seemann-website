@@ -210,7 +210,7 @@ section[id] { scroll-margin-top: 72px; }
 .hero-intro { font-size: 1.1rem; color: var(--ink-soft); max-width: 34em; }
 .hero-services { font-size: .82rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 1.5rem; }
 .hero-cta { margin-bottom: 1.5rem; }
-.hero-prices { display: flex; flex-wrap: wrap; gap: .4rem 2rem; margin: 0; font-size: .95rem; color: var(--ink-soft); }
+.hero-prices { display: flex; flex-direction: column; gap: .3rem; margin: 0; font-size: .95rem; color: var(--ink-soft); }
 .hero-prices div { display: flex; gap: .5rem; }
 .hero-prices dt::after { content: ''; }
 .hero-prices dd { margin: 0; color: var(--ink); font-weight: 500; font-variant-numeric: tabular-nums; }
@@ -304,7 +304,7 @@ section[id] { scroll-margin-top: 72px; }
 
 /* Kosten */
 .price-grid {
-  display: grid; grid-template-columns: 1fr 1fr; margin-bottom: clamp(2rem, 4vw, 3rem);
+  display: grid; grid-template-columns: repeat(3, 1fr); margin-bottom: clamp(2rem, 4vw, 3rem);
   border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
 }
 .price { padding: clamp(1.5rem, 3.5vw, 2.5rem) clamp(1rem, 3vw, 2.5rem); text-align: center; }
@@ -312,7 +312,7 @@ section[id] { scroll-margin-top: 72px; }
 .price h3 { font-size: clamp(1.1rem, 1.6vw, 1.25rem); margin-bottom: .75rem; }
 .price-amount { font-family: var(--serif); font-size: clamp(2.5rem, 5vw, 3.75rem); font-weight: 300; line-height: 1; margin: 0 0 .5rem; letter-spacing: -.02em; }
 .price-unit { color: var(--muted); margin: 0; }
-@media (max-width: 599px) {
+@media (max-width: 759px) {
   .price-grid { grid-template-columns: 1fr; }
   .price + .price { border-left: 0; border-top: 1px solid var(--line); }
 }
