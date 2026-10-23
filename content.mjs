@@ -338,7 +338,7 @@ ${pageHero({ eyebrow: 'Kosten', title: 'Kosten der Psychotherapie' })}
     <p class="fineprint">Ein Anspruch auf Kostenzuschuss besteht nicht automatisch. Er setzt eine krankheitswertige Störung voraus; die Entscheidung trifft Ihre Versicherung.</p>
 
     <h2 class="heading-accent">Private Zusatzversicherung</h2>
-    <p>Manche private Krankenversicherungen übernehmen zusätzlich einen Teil der Kosten. Umfang und Bedingungen sind sehr unterschiedlich – fragen Sie am besten vor Beginn der Therapie nach.</p>
+    <p>Manche private Krankenversicherungen übernehmen zusätzlich einen Teil der Kosten. Umfang und Bedingungen sind sehr unterschiedlich. Fragen Sie daher am besten vor Beginn der Therapie nach.</p>
 
     <h2 class="heading-accent">Versichert in Deutschland</h2>
     <p>Wenn Sie in Wien studieren oder leben und in Deutschland krankenversichert sind, klären Sie bitte vor Beginn der Behandlung direkt mit Ihrer Versicherung, ob und in welchem Umfang Psychotherapiekosten in Österreich übernommen werden. Bei Fragen unterstütze ich Sie gerne.</p>
