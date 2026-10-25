@@ -56,7 +56,6 @@ oder danach nur die tatsächlich gewünschten Dateien in `src/img/` committen.
 
 - **Domain** (`SITE_URL`) – `https://www.praxis-seemann.at` (Domain muss registriert und beim Hosting verbunden sein)
   (betrifft Canonicals, OpenGraph, Sitemap, Schema.org).
-- **Buchungslink** (`BOOKING_URL`) – ohne Link führt „Termin buchen“ zum Kontaktbereich.
 - **Portraitfoto** in höherer Auflösung (aktuell 770 × 770 px).
 - **Preis Onlineberatung** – auf der Website bewusst ohne Preisangabe.
 - **Impressum / Datenschutz** rechtlich prüfen (Aufsichtsbehörde, Hosting-Anbieter, Buchungstool).
@@ -69,16 +68,15 @@ oder danach nur die tatsächlich gewünschten Dateien in `src/img/` committen.
 - **Google Maps** lädt nur nach Klick auf „Karte laden“ (Zwei-Klick, `src/main.js`); die Auswahl wird nicht gespeichert.
 - Die Datenschutzerklärung steht in `content.mjs` (`dsSections`).
 
-## eTermin – vorbereitet, nicht aktiv
+## Online-Terminbuchung (eTermin)
 
-Der eTermin-Abschnitt der Datenschutzerklärung erscheint nur mit `ETERMIN_ENABLED=1`.
-Vor der Aktivierung:
-
-1. Buchungs-URL von eTermin besorgen und als `BOOKING_URL` setzen (externer Link, kein iFrame/Popup –
-   ein eingebettetes Widget bräuchte eine eigene Zwei-Klick-Einwilligung).
-2. Buchungsformular bei eTermin minimal halten: nur Name, Telefon und/oder E-Mail, Termin; keine Freitextfelder
-   zu Beschwerden/Diagnosen, kein Geburtsdatum/Anschrift, wenn nicht nötig. Erinnerungs-SMS/E-Mails datensparsam formulieren.
-3. AVV (05.09.2026, Version 07.2026 v6.2) unterschrieben ablegen; Unterauftragsverarbeiter und TOMs prüfen.
-4. Prüfen, ob die eTermin-Buchungsseite Cookies/Tracking einsetzt; Löschfristen in eTermin einstellen.
-5. Texte in `content.mjs` (Abschnitt `etermin`, Speicherdauer, Empfänger) mit der tatsächlichen Konfiguration abgleichen.
-6. Mit `ETERMIN_ENABLED=1` in den Cloudflare-Pages-Umgebungsvariablen bauen.
+- Alle „Termin buchen“-Links zeigen auf `BOOKING_URL` (Standard: `https://www.eTermin.net/psyche1010`) und tragen `data-booking`.
+- Mit JavaScript öffnet `src/main.js` die Buchungsseite in einem `<dialog>`-Fenster (`#etwidgetModal`);
+  der iframe `#etifr` wird erst beim ersten Klick erzeugt – vorher keine Verbindung zu eTermin.
+  Ohne JavaScript bzw. ohne `<dialog>`-Unterstützung öffnet der Link einen neuen Tab.
+- Das offizielle Skript `etwidget.min.js` wird bewusst nicht geladen (würde schon beim Seitenaufruf
+  eine Verbindung zu eTermin herstellen und bringt einen eigenen Button mit).
+- Der eTermin-Abschnitt der Datenschutzerklärung ist aktiv; `ETERMIN_ENABLED=0` blendet ihn aus.
+- Laufend prüfen: Buchungsformular bei eTermin minimal halten (keine Freitextfelder zu Beschwerden/Diagnosen,
+  Geburtsdatum/Anschrift nur wenn nötig), AVV ablegen, Löschfristen in eTermin einstellen,
+  in eTermin die Einbettung auf eigener Website erlauben, falls dort einschränkbar.

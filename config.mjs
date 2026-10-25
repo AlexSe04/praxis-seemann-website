@@ -4,15 +4,14 @@
 
 export const SITE_URL = (process.env.SITE_URL || 'https://www.praxis-seemann.at').replace(/\/$/, '');
 
-// Link des Online-Terminbuchungstools (z. B. Doctolib, Calendly, …).
-// Solange kein Link hinterlegt ist, führt „Termin buchen“ zum Kontaktbereich.
-export const BOOKING_URL = process.env.BOOKING_URL || '/#kontakt';
+// Online-Terminbuchung über eTermin.
+// Mit JavaScript öffnet „Termin buchen“ die Buchungsseite in einem Fenster über der Website
+// (iframe wird erst beim Klick erzeugt), ohne JavaScript in einem neuen Tab.
+export const BOOKING_URL = process.env.BOOKING_URL || 'https://www.eTermin.net/psyche1010';
 
-// eTermin (Online-Terminbuchung) – vorbereitet, aber NICHT aktiv.
-// Erst bei tatsächlicher Aktivierung (Buchungs-URL vorhanden, Formular minimal konfiguriert)
-// mit ETERMIN_ENABLED=1 bauen: Dann erscheint der eTermin-Abschnitt in der Datenschutzerklärung.
-// Die Buchungs-URL selbst wird weiterhin über BOOKING_URL gesetzt (externer Link, kein iFrame).
-export const ETERMIN_ENABLED = process.env.ETERMIN_ENABLED === '1';
+// Steuert den eTermin-Abschnitt der Datenschutzerklärung. ETERMIN_ENABLED=0 blendet ihn aus
+// (z. B. wenn BOOKING_URL auf einen anderen Anbieter zeigt).
+export const ETERMIN_ENABLED = process.env.ETERMIN_ENABLED !== '0';
 
 export const person = {
   name: 'Mag.a Alexandra Seemann, BA pth.',

@@ -438,14 +438,15 @@ const dsSections = (h) => [
     <p>Bei jedem Aufruf der Website werden technisch notwendige Verbindungsdaten verarbeitet, insbesondere IP-Adresse, Datum und Uhrzeit, aufgerufene Adresse, übertragene Datenmenge, Referrer (die zuvor besuchte Seite, sofern Ihr Browser sie übermittelt) sowie Browser- und Betriebssystemangaben. Diese Daten sind nötig, um die Seiten auszuliefern, Störungen zu beheben und Angriffe abzuwehren.</p>
     <p>Rechtsgrundlage ist Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;f DSGVO. Ich nutze diese Daten nicht, um Besucherinnen und Besucher zu identifizieren, Profile zu erstellen oder Reichweite zu messen, und führe sie nicht mit anderen Daten zusammen.</p>` },
   { id: 'cookies', title: 'Cookies und Speichertechnologien', body: `
-    <p>Diese Website selbst setzt <strong>keine Cookies</strong> und speichert nichts im Local Storage, Session Storage oder in vergleichbaren Speichern Ihres Browsers. Das kleine Skript der Website dient nur der Bedienung (Menü, Kopfzeile, Einblendungen, Laden der Karte auf Klick) und legt keine Daten auf Ihrem Gerät ab. Ein Cookie-Banner ist daher nicht erforderlich.</p>
+    <p>Diese Website selbst setzt <strong>keine Cookies</strong> und speichert nichts im Local Storage, Session Storage oder in vergleichbaren Speichern Ihres Browsers. Das kleine Skript der Website dient nur der Bedienung (Menü, Kopfzeile, Einblendungen, Laden der Karte auf Klick) und legt keine Daten auf Ihrem Gerät ab. Ein Cookie-Banner ist daher nicht erforderlich. Inhalte anderer Anbieter (Google Maps${ETERMIN_ENABLED ? ', eTermin' : ''}) werden erst geladen, wenn Sie dies durch einen Klick auslösen.</p>
     <div class="table-scroll" role="region" aria-labelledby="cookie-tabelle" tabindex="0">
     <table class="data-table">
       <caption id="cookie-tabelle">Übersicht der Speichertechnologien</caption>
       <thead><tr><th scope="col">Technologie</th><th scope="col">Anbieter</th><th scope="col">Zweck</th><th scope="col">Kategorie</th><th scope="col">Dauer</th><th scope="col">Rechtsgrundlage</th><th scope="col">Drittland</th></tr></thead>
       <tbody>
         <tr><th scope="row">Keine Cookies, kein Local/Session Storage</th><td>Website</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td></tr>
-        <tr><th scope="row">Google Maps (nur nach Klick auf „Karte laden“)</th><td>Google Ireland Limited</td><td>Anzeige der Karte; Google kann dabei eigene Cookies oder ähnliche Technologien einsetzen</td><td>Externer Inhalt, einwilligungsbasiert</td><td>Festgelegt durch Google</td><td>Einwilligung (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;a DSGVO, §&nbsp;165 Abs.&nbsp;3 TKG 2021)</td><td>Möglich (USA)</td></tr>
+        <tr><th scope="row">Google Maps (nur nach Klick auf „Karte laden“)</th><td>Google Ireland Limited</td><td>Anzeige der Karte; Google kann dabei eigene Cookies oder ähnliche Technologien einsetzen</td><td>Externer Inhalt, einwilligungsbasiert</td><td>Festgelegt durch Google</td><td>Einwilligung (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;a DSGVO, §&nbsp;165 Abs.&nbsp;3 TKG 2021)</td><td>Möglich (USA)</td></tr>${ETERMIN_ENABLED ? `
+        <tr><th scope="row">eTermin-Buchungsseite (nur nach Klick auf „Termin buchen“)</th><td>eTermin GmbH</td><td>Online-Terminbuchung; eTermin kann auf der Buchungsseite eigene Cookies oder ähnliche Technologien einsetzen</td><td>Vom Nutzer angeforderter Dienst</td><td>Festgelegt durch eTermin</td><td>§&nbsp;165 Abs.&nbsp;3 TKG 2021 (ausdrücklich gewünschter Dienst); für die Buchungsdaten siehe <a href="#etermin">Online-Terminbuchung</a></td><td>Schweiz (Angemessenheitsbeschluss)</td></tr>` : ''}
       </tbody>
     </table>
     </div>
@@ -456,8 +457,8 @@ const dsSections = (h) => [
     <p>Die E-Mail-Adresse wird über Microsoft (Outlook.com) betrieben. Bitte beachten Sie, dass E-Mails in der Regel nicht durchgehend verschlüsselt übertragen werden. Senden Sie mir daher möglichst keine ausführlichen Gesundheitsinformationen per E-Mail; für eine erste Kontaktaufnahme genügen Name, Rückrufnummer und Terminwunsch.</p>` },
   // eTermin: Dieser Abschnitt wird nur veröffentlicht, wenn ETERMIN_ENABLED=1 gesetzt ist (siehe config.mjs).
   ETERMIN_ENABLED && { id: 'etermin', title: 'Online-Terminbuchung über eTermin', body: `
-    <p>Für die Online-Terminbuchung nutze ich den Dienst der eTermin GmbH, Mättivor 3, 6430 Schwyz, Schweiz. Über den Link „Termin buchen“ gelangen Sie auf die Buchungsseite von eTermin; diese wird nicht in meine Website eingebettet. Erst mit dem Aufruf dieser Seite werden Daten an eTermin übertragen.</p>
-    <p>Verarbeitet werden die Angaben, die Sie bei der Buchung eingeben, insbesondere Name und Kontaktdaten, der gewählte Termin, gegebenenfalls Ihre Nachricht an mich sowie technische Daten der Buchung. Pflichtfelder sind auf das Nötigste beschränkt; bitte machen Sie bei der Buchung keine Angaben zu Beschwerden oder Diagnosen.</p>
+    <p>Für die Online-Terminbuchung nutze ich den Dienst der eTermin GmbH, Mättivor 3, 6430 Schwyz, Schweiz. Wenn Sie auf „Termin buchen“ klicken, öffnet sich die Buchungsseite von eTermin in einem Fenster über dieser Website (eingebettet als iframe) bzw. – ohne JavaScript – in einem neuen Tab. Erst mit diesem Klick wird eine Verbindung zu eTermin hergestellt und es werden Daten wie Ihre IP-Adresse und Browserangaben an eTermin übertragen; vorher lädt diese Website keine Inhalte von eTermin.</p>
+    <p>Verarbeitet werden die Angaben, die Sie bei der Buchung eingeben, insbesondere Name und Kontaktdaten, der gewählte Termin, gegebenenfalls Ihre Nachricht an mich sowie technische Daten der Buchung. Bitte machen Sie bei der Buchung keine Angaben zu Beschwerden oder Diagnosen; Ihr Anliegen besprechen wir persönlich.</p>
     <p>Rechtsgrundlage ist die Durchführung vorvertraglicher Maßnahmen (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;b DSGVO). Da bereits die Buchung eines Psychotherapietermins einen Rückschluss auf Ihre Gesundheit zulassen kann, erfolgt die Verarbeitung zusätzlich nach Art.&nbsp;9 Abs.&nbsp;2 lit.&nbsp;h und Abs.&nbsp;3 DSGVO. Eine Cookie-Einwilligung ist nicht die Rechtsgrundlage für diese Buchungsdaten.</p>
     <p>eTermin ist als Auftragsverarbeiter auf Grundlage eines Vertrags nach Art.&nbsp;28 DSGVO tätig (Stand des Vertrags: 05.09.2026, Version 07.2026 v6.2). Nach Angaben von eTermin werden die Daten bei Microsoft Azure im Rechenzentrum Frankfurt am Main gespeichert; Unterauftragsverarbeiter ist hierfür die Microsoft Ireland Operations Limited, Dublin, Irland. Die technischen und organisatorischen Maßnahmen sind im Vertrag festgelegt. Für die Schweiz besteht ein Angemessenheitsbeschluss der Europäischen Kommission (Art.&nbsp;45 DSGVO).</p>
     <p>Auf der Buchungsseite gelten ergänzend die Datenschutzhinweise von eTermin. Wenn Sie nicht online buchen möchten, können Sie einen Termin jederzeit telefonisch oder per E-Mail vereinbaren.</p>` },
@@ -521,8 +522,8 @@ const datenschutz = {
 ${pageHero({ title: 'Datenschutzerklärung' })}
 <section class="section">
   <div class="wrap narrow prose">
-    <nav class="toc" aria-labelledby="inhalt">
-      <h2 id="inhalt">Inhalt</h2>
+    <nav class="toc" aria-labelledby="inhaltsverzeichnis">
+      <h2 id="inhaltsverzeichnis">Inhalt</h2>
       <ol>
         ${sections.map((s) => `<li><a href="#${s.id}">${s.title}</a></li>`).join('\n        ')}
       </ol>
