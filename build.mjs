@@ -18,7 +18,7 @@ const TODAY = new Date().toISOString().slice(0, 10);
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const abs = (path) => SITE_URL + path;
 const isExternalBooking = /^https?:/.test(BOOKING_URL);
-const bookingAttrs = isExternalBooking ? ` href="${esc(BOOKING_URL)}" target="_blank" rel="noopener"` : ` href="${esc(BOOKING_URL)}"`;
+const bookingAttrs = isExternalBooking ? ` href="${esc(BOOKING_URL)}" target="_blank" rel="noopener" data-booking` : ` href="${esc(BOOKING_URL)}"`;
 
 const helpers = { esc, abs, bookingAttrs, person, contact, intakt, prices, zuschuesse, profiles, img };
 const sameAs = [profiles.google, profiles.linkedin].filter(Boolean);
@@ -157,6 +157,21 @@ function header() {
 </header>`;
 }
 
+// Buchungsfenster: Der iframe wird erst beim Klick auf „Termin buchen“ von main.js eingefügt,
+// damit vorher keine Verbindung zum Buchungsanbieter entsteht.
+function bookingDialog() {
+  return `<dialog class="booking-modal" id="etwidgetModal" aria-labelledby="booking-title" data-booking-dialog>
+  <div class="booking-inner" id="etcontent">
+    <div class="booking-head">
+      <h2 class="booking-title" id="booking-title">Termin buchen</h2>
+      <button type="button" class="btn btn-small booking-close" id="etwidgetClose" data-booking-close autofocus>Schließen <span aria-hidden="true">×</span></button>
+    </div>
+    <p class="booking-note">Die Online-Buchung erfolgt über eTermin. <a href="/datenschutz/#etermin">Datenschutz</a> · <a href="${esc(BOOKING_URL)}" target="_blank" rel="noopener">In neuem Tab öffnen</a></p>
+    <div class="booking-frame" data-booking-frame></div>
+  </div>
+</dialog>`;
+}
+
 function footer() {
   return `
 <footer class="site-footer">
@@ -241,6 +256,7 @@ ${header()}
 ${page.body(helpers)}
 </main>
 ${footer()}
+${isExternalBooking ? bookingDialog() : ''}
 </body>
 </html>
 `;

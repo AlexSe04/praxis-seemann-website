@@ -33,6 +33,36 @@
     });
   });
 
+  // Online-Terminbuchung im Fenster; eTermin wird erst beim Klick geladen (Datenschutz).
+  // Ohne <dialog>-Unterstützung öffnet der Link wie gewohnt einen neuen Tab.
+  var dialog = document.querySelector('[data-booking-dialog]');
+  if (dialog && typeof dialog.showModal === 'function') {
+    var frameBox = dialog.querySelector('[data-booking-frame]');
+    var opener = null;
+    document.addEventListener('click', function (e) {
+      var link = e.target.closest('[data-booking]');
+      if (!link || e.ctrlKey || e.metaKey || e.shiftKey || e.button > 0) return;
+      e.preventDefault();
+      setOpen(false);
+      opener = link;
+      if (!frameBox.querySelector('iframe')) {
+        var frame = document.createElement('iframe');
+        frame.id = 'etifr';
+        frame.src = link.getAttribute('href');
+        frame.title = 'Online-Terminbuchung bei eTermin';
+        frameBox.appendChild(frame);
+      }
+      root.classList.add('booking-open');
+      dialog.showModal();
+    });
+    dialog.querySelector('[data-booking-close]').addEventListener('click', function () { dialog.close(); });
+    dialog.addEventListener('click', function (e) { if (e.target === dialog) dialog.close(); });
+    dialog.addEventListener('close', function () {
+      root.classList.remove('booking-open');
+      if (opener) opener.focus();
+    });
+  }
+
   var items = document.querySelectorAll('.reveal');
   if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     items.forEach(function (el) { el.classList.add('is-visible'); });
