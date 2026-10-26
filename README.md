@@ -30,7 +30,9 @@ nicht in Git eingecheckt. Benötigt nur Node ≥ 18, keine weiteren Abhängigkei
 | Root directory | `/` |
 | Umgebungsvariablen (optional) | `SITE_URL`, `BOOKING_URL`, `LINKEDIN_URL`, `ETERMIN_ENABLED` |
 
-Ohne `SITE_URL` wird `https://www.praxis-seemann.at` verwendet.
+Ohne `SITE_URL` wird die Hauptdomain `https://praxis-seemann.at` verwendet (ohne www). In Cloudflare Pages `SITE_URL` nicht setzen oder genau auf diesen Wert.
+
+Der Build erzeugt zusätzlich `sitemap.xml` (nur indexierbare Seiten, ohne `lastmod`), `robots.txt`, `_redirects` und `_headers` (`X-Robots-Tag: noindex` für `praxis-seemann-website.pages.dev`).
 
 ## Struktur
 
@@ -54,8 +56,6 @@ oder danach nur die tatsächlich gewünschten Dateien in `src/img/` committen.
 
 ## Vor dem Livegang offen
 
-- **Domain** (`SITE_URL`) – `https://www.praxis-seemann.at` (Domain muss registriert und beim Hosting verbunden sein)
-  (betrifft Canonicals, OpenGraph, Sitemap, Schema.org).
 - **Portraitfoto** in höherer Auflösung (aktuell 770 × 770 px).
 - **Preis Onlineberatung** – auf der Website bewusst ohne Preisangabe.
 - **Impressum / Datenschutz** rechtlich prüfen (Aufsichtsbehörde, Hosting-Anbieter, Buchungstool).

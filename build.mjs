@@ -13,7 +13,6 @@ import { pages } from './content.mjs';
 const ROOT = dirname(fileURLToPath(import.meta.url));
 const OUT = join(ROOT, 'site');
 const SRC = join(ROOT, 'src');
-const TODAY = new Date().toISOString().slice(0, 10);
 
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const abs = (path) => SITE_URL + path;
@@ -227,7 +226,7 @@ function layout(page) {
 <title>${esc(page.title)}</title>
 <meta name="description" content="${esc(page.description)}">
 ${page.noindex ? '<meta name="robots" content="noindex, follow">' : ''}
-<link rel="canonical" href="${canonical}">
+${page.file ? '' : `<link rel="canonical" href="${canonical}">`}
 <link rel="preload" href="/fonts/newsreader-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/styles.css">
@@ -238,7 +237,7 @@ ${page.noindex ? '<meta name="robots" content="noindex, follow">' : ''}
 <meta property="og:site_name" content="Psychotherapie ${esc(person.shortName)}">
 <meta property="og:title" content="${esc(page.ogTitle || page.title)}">
 <meta property="og:description" content="${esc(page.description)}">
-<meta property="og:url" content="${canonical}">
+${page.file ? '' : `<meta property="og:url" content="${canonical}">`}
 <meta property="og:image" content="${ogImage}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -286,7 +285,7 @@ for (const page of pages) {
 const indexable = pages.filter((p) => !p.noindex && !p.file);
 writeFileSync(join(OUT, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${indexable.map((p) => `  <url><loc>${abs(p.path)}</loc><lastmod>${TODAY}</lastmod></url>`).join('\n')}
+${indexable.map((p) => `  <url><loc>${abs(p.path)}</loc></url>`).join('\n')}
 </urlset>
 `);
 // Weiterleitungen für entfernte Unterseiten (Cloudflare Pages liest _redirects)
@@ -294,6 +293,10 @@ writeFileSync(join(OUT, '_redirects'), [
   '/psychotherapie/*', '/paartherapie-wien/*', '/familientherapie-wien/*',
   '/psychotherapie-studierende-wien/*', '/onlineberatung/*', '/ueber-mich/*'
 ].map((from) => `${from} /#angebot 301`).join('\n').replace('/ueber-mich/* /#angebot', '/ueber-mich/* /#ueber-mich') + '\n');
+// Die Produktionsadresse auf pages.dev nicht indexieren (Preview-Deployments setzt Cloudflare
+// ohnehin auf noindex). Maßgeblich ist die Hauptdomain SITE_URL.
+writeFileSync(join(OUT, '_headers'), 'https://:project.pages.dev/*\n  X-Robots-Tag: noindex\n');
+if (/\/\/www\.|pages\.dev/.test(SITE_URL)) console.warn(`Achtung: SITE_URL ist ${SITE_URL} – erwartet wird https://praxis-seemann.at`);
 writeFileSync(join(OUT, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${abs('/sitemap.xml')}\n`);
 
 if (!isExternalBooking) console.warn('Hinweis: BOOKING_URL ist nicht gesetzt – „Termin buchen“ verweist auf den Kontaktbereich.');
