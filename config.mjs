@@ -2,7 +2,8 @@
 // NAP (Name, Adresse, Telefon) wird überall aus diesen Werten erzeugt,
 // damit die Schreibweise auf jeder Seite exakt gleich bleibt.
 
-export const SITE_URL = (process.env.SITE_URL || 'https://www.praxis-seemann.at').replace(/\/$/, '');
+// Hauptdomain ohne www (www.praxis-seemann.at leitet per Cloudflare-Redirect-Rule 301 hierher weiter).
+export const SITE_URL = (process.env.SITE_URL || 'https://praxis-seemann.at').replace(/\/$/, '');
 
 // Online-Terminbuchung über eTermin.
 // Mit JavaScript öffnet „Termin buchen“ die Buchungsseite in einem Fenster über der Website
