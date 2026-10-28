@@ -130,7 +130,7 @@ const home = {
       <h1>Psychotherapie in Wien</h1>
       <p class="hero-person">${h.person.name}<br><span>${h.person.job} für ${h.person.method}</span></p>
       <p class="hero-intro">Psychotherapie Alsergrund Wien.</p>
-      <p class="hero-services">Einzeltherapie · Paartherapie · Familientherapie · Onlineberatung</p>
+      <p class="hero-services">Einzelpsychotherapie&nbsp;Wien · Paartherapie&nbsp;Wien · Familientherapie&nbsp;Wien · Onlineberatung</p>
       <div class="hero-cta">
         <a class="btn btn-large"${h.bookingAttrs}>Termin buchen</a>
       </div>
