@@ -200,7 +200,7 @@ const home = {
       <h2>Über mich</h2>
       <p class="about-name">${h.person.name}</p>
       <p class="about-role">${h.person.job} für ${h.person.method}</p>
-      <p>Ich arbeite als Psychotherapeutin in Wien und leite <a href="${h.intakt.url}" rel="noopener" target="_blank">intakt</a>, das Therapiezentrum für Menschen mit Essstörungen. In meine therapeutische Arbeit fließen mehr als 2.000 Stunden praktische Therapieerfahrung ein.</p>
+      <p>Ich arbeite als Psychotherapeutin in Wien und leite das Therapiezentrum „<a href="${h.intakt.url}" rel="noopener" target="_blank">intakt</a>“ für Menschen mit Essstörungen. In meine therapeutische Arbeit fließen mehr als 2.000 Stunden praktische Therapieerfahrung ein.</p>
       <ul class="facts">
         <li>Systemische Therapie</li>
         <li>Über 2.000 Therapiestunden</li>
