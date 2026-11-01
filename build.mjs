@@ -74,9 +74,9 @@ function baseGraph() {
       honorificPrefix: person.prefix, honorificSuffix: person.suffix,
       jobTitle: person.job, knowsAbout: [
         'Psychotherapie', 'Systemische Therapie', 'Einzelpsychotherapie', 'Paartherapie', 'Familientherapie',
-        'ADHS', 'ADS', 'Angststörungen', 'Depression', 'Essstörungen', 'Magersucht', 'Bulimie', 'Binge Eating',
-        'Körperbild', 'Beziehungsprobleme', 'Selbstwertprobleme', 'Identitätsfragen', 'Schlafprobleme', 'Mobbing',
-        'Stressbewältigung', 'Trauer', 'Prüfungsangst', 'Psychotherapie für Studierende'
+        'ADHS', 'ADS', 'Angstzustände', 'Depression', 'Essstörungen', 'Essanfälle', 'Bulimie',
+        'Beziehungsprobleme', 'Selbstwertprobleme', 'Unzufriedenheit mit dem Körper', 'Schlafprobleme', 'Mobbing',
+        'Stressbewältigung', 'Belastende Ereignisse', 'Trauer', 'Prüfungsangst', 'Psychotherapie für Studierende'
       ],
       image: abs('/img/alexandra-seemann-psychotherapeutin-wien-770.webp'),
       url: abs('/#ueber-mich'), telephone: contact.phone, email: contact.email,
