@@ -72,7 +72,12 @@ function baseGraph() {
       '@type': 'Person', '@id': ids.person,
       name: person.name, givenName: person.givenName, familyName: person.familyName,
       honorificPrefix: person.prefix, honorificSuffix: person.suffix,
-      jobTitle: person.job, knowsAbout: ['Psychotherapie', person.method, 'Paartherapie', 'Familientherapie', 'Essstörungen'],
+      jobTitle: person.job, knowsAbout: [
+        'Psychotherapie', 'Systemische Therapie', 'Einzelpsychotherapie', 'Paartherapie', 'Familientherapie',
+        'ADHS', 'ADS', 'Angststörungen', 'Depression', 'Essstörungen', 'Magersucht', 'Bulimie', 'Binge Eating',
+        'Körperbild', 'Beziehungsprobleme', 'Selbstwertprobleme', 'Identitätsfragen', 'Schlafprobleme', 'Mobbing',
+        'Stressbewältigung', 'Trauer', 'Prüfungsangst', 'Psychotherapie für Studierende'
+      ],
       image: abs('/img/alexandra-seemann-psychotherapeutin-wien-770.webp'),
       url: abs('/#ueber-mich'), telephone: contact.phone, email: contact.email,
       ...(profiles.linkedin ? { sameAs: [profiles.linkedin] } : {}),
@@ -80,7 +85,7 @@ function baseGraph() {
     },
     {
       '@type': 'MedicalBusiness', '@id': ids.practice,
-      name: `Psychotherapie ${person.name}`, description: 'Psychotherapeutische Praxis für Systemische Therapie in 1090 Wien: Einzeltherapie, Paartherapie, Familientherapie und Onlineberatung.',
+      name: `Psychotherapie ${person.name}`, description: 'Praxis für Systemische Psychotherapie in Wien-Alsergrund (1090). Einzel-, Paar- und Familientherapie sowie Onlineberatung. Behandlungsschwerpunkte umfassen unter anderem ADHS, Angst, Depression, Essstörungen, Beziehungsprobleme, Selbstwert, Stress und persönliche Krisen.',
       url: abs('/'), telephone: contact.phone, email: contact.email,
       image: abs('/img/psychotherapie-praxis-1090-wien-1440.webp'),
       address: { '@type': 'PostalAddress', streetAddress: contact.street, postalCode: contact.zip, addressLocality: contact.city, addressRegion: 'Wien', addressCountry: contact.country },

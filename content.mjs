@@ -55,6 +55,10 @@ const faq = [
     a: '<p>Psychotherapie ist eine wissenschaftlich fundierte Behandlungsmethode psychischer Belastungen und Erkrankungen. Eine vertrauensvolle therapeutische Beziehung bildet die Grundlage, um schwierige Erfahrungen zu verstehen, neue Perspektiven zu entwickeln und nachhaltige Veränderungen zu ermöglichen. Regelmäßigkeit und ausreichend Zeit können diesen Prozess unterstützen.</p>'
   },
   {
+    q: 'Mit welchen Anliegen kann ich zu Ihnen kommen?',
+    a: '<p>Menschen kommen mit ganz unterschiedlichen Anliegen in meine Praxis: zum Beispiel bei Ängsten, depressiven Phasen, anhaltendem Stress oder Erschöpfung, nach Verlusten, bei Konflikten in Beziehungen, Entscheidungsprozessen, bei schwierigen Lebensphasen oder Erfahrungen mit Mobbing. Ich begleite auch Erwachsene mit ADHS und ADS. Ein weiterer Schwerpunkt meiner Arbeit sind Essstörungen, einschließlich Magersucht, Bulimie und Essanfällen, sowie die Unzufriedenheit mit dem eigenen Körper. Wenn Sie unsicher sind, ob Psychotherapie für Ihr Anliegen passt, klären wir das gerne in einem ersten Gespräch.</p>'
+  },
+  {
     q: 'Wie lange dauert eine Psychotherapie?',
     a: '<p>Die Dauer richtet sich nach Ihrem Anliegen, Ihrer persönlichen Situation und den gemeinsam vereinbarten Zielen. Manche Themen lassen sich in wenigen Sitzungen bearbeiten, andere benötigen einen längeren therapeutischen Prozess. Dauer und Frequenz werden gemeinsam besprochen und regelmäßig an den aktuellen Bedarf angepasst.</p>'
   },
@@ -91,7 +95,7 @@ function accordion(items, group) {
 const services = [
   {
     title: 'Einzeltherapie', price: 'einzel',
-    text: 'Raum für persönliche Themen, Belastungen, Krisen und Veränderungsprozesse. Gemeinsam entwickeln wir neue Perspektiven und konkrete Möglichkeiten für Ihren Alltag.'
+    text: 'Raum für persönliche Themen, Belastungen, Krisen und Veränderungsprozesse. Gemeinsam entwickeln wir neue Perspektiven und konkrete Möglichkeiten für Ihren Alltag. Häufige Anliegen sind zum Beispiel Ängste, depressive Verstimmungen, Stress und Erschöpfung, Schlafprobleme, ein geringes Selbstwertgefühl, Trauer oder belastende Lebensereignisse.'
   },
   {
     title: 'Paartherapie', price: 'paar',
@@ -103,7 +107,7 @@ const services = [
   },
   {
     title: 'Psychotherapie für Studierende',
-    text: 'Studium, Leistungsdruck, Veränderungen und persönliche Belastungen können viel Kraft kosten. Psychotherapie bietet Raum, Situationen zu ordnen und neue Handlungsmöglichkeiten zu entwickeln.'
+    text: 'Studium, Leistungsdruck, Veränderungen und persönliche Belastungen können viel Kraft kosten. Psychotherapie bietet Raum, Situationen zu ordnen und neue Handlungsmöglichkeiten zu entwickeln. Das kann etwa bei Prüfungsangst, Stress im Studium oder Fragen rund um Identität und die eigene Zukunft hilfreich sein.'
   },
   {
     title: 'Onlineberatung',
