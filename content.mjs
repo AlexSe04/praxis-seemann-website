@@ -98,7 +98,7 @@ const services = [
     text: 'Raum für persönliche Themen, Belastungen, Krisen und Veränderungsprozesse. Gemeinsam entwickeln wir neue Perspektiven und konkrete Möglichkeiten für Ihren Alltag. Häufige Anliegen sind zum Beispiel Ängste, depressive Verstimmungen, Stress und Erschöpfung, Schlafprobleme, ein geringes Selbstwertgefühl, Trauer oder belastende Lebensereignisse.'
   },
   {
-    title: 'Paartherapie', price: 'paar',
+    title: 'Paartherapie &amp; Paargespräche', price: 'paar',
     text: 'Wenn Gespräche schwieriger werden, Konflikte sich wiederholen oder Nähe verloren geht, kann Paartherapie helfen, Muster zu verstehen und neue Wege miteinander zu entwickeln.'
   },
   {
