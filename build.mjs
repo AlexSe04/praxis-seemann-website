@@ -73,7 +73,7 @@ function baseGraph() {
       name: person.name, givenName: person.givenName, familyName: person.familyName,
       honorificPrefix: person.prefix, honorificSuffix: person.suffix,
       jobTitle: person.job, knowsAbout: [
-        'Psychotherapie', 'Systemische Therapie', 'Einzelpsychotherapie', 'Paartherapie', 'Familientherapie',
+        'Psychotherapie', 'Systemische Therapie', 'Einzelpsychotherapie', 'Paartherapie & Paargespräche', 'Familientherapie',
         'ADHS', 'ADS', 'Angstzustände', 'Depression', 'Essstörungen', 'Essanfälle', 'Bulimie',
         'Beziehungsprobleme', 'Selbstwertprobleme', 'Unzufriedenheit mit dem Körper', 'Schlafprobleme', 'Mobbing',
         'Stressbewältigung', 'Belastende Ereignisse', 'Trauer', 'Prüfungsangst', 'Psychotherapie für Studierende'
@@ -101,7 +101,7 @@ function baseGraph() {
         '@type': 'OfferCatalog', name: 'Psychotherapie in Wien',
         itemListElement: [
           offer('Einzeltherapie', prices.einzel, '/#angebot'),
-          offer('Paartherapie', prices.paar, '/#angebot'),
+          offer('Paartherapie & Paargespräche', prices.paar, '/#angebot'),
           offer('Familientherapie', prices.paar, '/#angebot'),
           offer('Psychotherapie für Studierende', prices.einzel, '/#angebot'),
           offer('Onlineberatung', null, '/#angebot')
@@ -197,7 +197,7 @@ function footer() {
       <p class="footer-title">Angebot</p>
       <ul>
         <li>Einzeltherapie</li>
-        <li>Paartherapie</li>
+        <li>Paartherapie &amp; Paargespräche</li>
         <li>Familientherapie</li>
         <li>Psychotherapie für Studierende</li>
         <li>Onlineberatung</li>
