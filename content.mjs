@@ -134,7 +134,7 @@ const home = {
       <h1>Psychotherapie in Wien</h1>
       <p class="hero-person">${h.person.name}<br><span>${h.person.job} für ${h.person.method}</span></p>
       <p class="hero-intro">Psychotherapie Alsergrund Wien.</p>
-      <p class="hero-services">Einzelpsychotherapie&nbsp;Wien · Paartherapie&nbsp;Wien · Familientherapie&nbsp;Wien · Onlineberatung</p>
+      <p class="hero-services">Einzelpsychotherapie&nbsp;Wien · Paartherapie &amp; Paargespräche&nbsp;Wien · Familientherapie&nbsp;Wien · Onlineberatung</p>
       <div class="hero-cta">
         <a class="btn btn-large"${h.bookingAttrs}>Termin buchen</a>
       </div>
@@ -318,7 +318,7 @@ ${pageHero({ eyebrow: 'Kosten', title: 'Kosten der Psychotherapie' })}
     <h2 class="heading-accent">Honorar pro Sitzung</h2>
     <dl class="price-list">
       <div><dt>Einzeltherapie</dt><dd>${eur(h.prices.einzel)} · ${h.prices.minutes}&nbsp;Minuten</dd></div>
-      <div><dt>Paartherapie</dt><dd>${eur(h.prices.paar)} · ${h.prices.minutes}&nbsp;Minuten</dd></div>
+      <div><dt>Paartherapie &amp; Paargespräche</dt><dd>${eur(h.prices.paar)} · ${h.prices.minutes}&nbsp;Minuten</dd></div>
       <div><dt>Familientherapie</dt><dd>${eur(h.prices.paar)} · ${h.prices.minutes}&nbsp;Minuten</dd></div>
     </dl>
     <p>Ich arbeite als Wahlpsychotherapeutin, also ohne direkte Verrechnung mit der Krankenkasse. Sie bezahlen das Honorar und erhalten eine Honorarnote, die Sie bei Ihrer Versicherung einreichen können.</p>
