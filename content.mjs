@@ -100,49 +100,49 @@ function accordion(items, group) {
 const topics = [
   {
     slug: 'aengste', term: 'Ängste', crumb: 'Ängste',
-    h1: 'Psychotherapie bei Ängsten in Wien',
+    h1: 'Psychotherapie bei Ängsten',
     title: 'Psychotherapie bei Angst in Wien | Alexandra Seemann',
     description: 'Ängste, Panikattacken oder ständige Sorgen? Psychotherapie bei Angst in 1090 Wien bei Mag.a Alexandra Seemann. Termin online buchen.',
     text: 'Wenn Sorgen Sie kaum noch loslassen, innere Unruhe Ihren Alltag bestimmt oder Panikattacken Sie plötzlich überrollen, kann das sehr belastend sein. Auch soziale Ängste schränken oft mehr ein, als andere sehen. Sie müssen damit nicht allein bleiben. In meiner Praxis in 1090 Wien schauen wir gemeinsam darauf, was Ihre Angst auslöst und aufrechterhält, und entwickeln Schritt für Schritt Wege, ihr mit mehr Sicherheit zu begegnen.'
   },
   {
     slug: 'depressive-verstimmungen', term: 'depressive Verstimmungen', crumb: 'Depressive Verstimmungen',
-    h1: 'Psychotherapie bei depressiven Verstimmungen und Depression in Wien',
+    h1: 'Psychotherapie bei depressiven Verstimmungen und Depression',
     title: 'Psychotherapie bei Depression in Wien | Alexandra Seemann',
     description: 'Niedergeschlagen, antriebslos, innerlich leer? Psychotherapie bei depressiven Verstimmungen und Depression in 1090 Wien. Termin online buchen.',
     text: 'Vielleicht fühlen Sie sich seit längerer Zeit niedergeschlagen, antriebslos oder innerlich leer, und Dinge, die Ihnen früher Freude gemacht haben, verlieren an Bedeutung. Solche Phasen können jeden Menschen treffen und sind kein Zeichen von Schwäche. Ob es sich um eine vorübergehende Verstimmung oder um eine Depression handelt, klären wir sorgfältig. In der Psychotherapie finden Sie einen geschützten Raum, um Belastendes zu verstehen und wieder Zugang zu Ihren Kräften zu finden.'
   },
   {
     slug: 'stress-erschoepfung', term: 'Stress und Erschöpfung', crumb: 'Stress und Erschöpfung',
-    h1: 'Psychotherapie bei Stress, Erschöpfung und Burnout in Wien',
+    h1: 'Psychotherapie bei Stress, Erschöpfung und Burnout',
     title: 'Stress & Burnout: Psychotherapie Wien | Alexandra Seemann',
     description: 'Chronischer Stress, Erschöpfung oder Burnout? Psychotherapie zur Stressbewältigung in 1090 Wien bei Mag.a Alexandra Seemann. Termin online buchen.',
     text: 'Ständige Anspannung, hoher Leistungsdruck und das Gefühl, allem nicht mehr gerecht zu werden, können auf Dauer zu tiefer emotionaler Erschöpfung führen. Manche Menschen erleben das als Burnout, andere als anhaltende Überforderung. Gemeinsam betrachten wir, was Sie belastet, welche Muster dahinterstehen und was Ihnen guttut. So entstehen Wege, achtsamer mit Ihren Grenzen umzugehen und im Alltag wieder mehr Ruhe und Kraft zu finden.'
   },
   {
     slug: 'schlafprobleme', term: 'Schlafprobleme', crumb: 'Schlafprobleme',
-    h1: 'Psychotherapie bei Schlafproblemen in Wien',
+    h1: 'Psychotherapie bei Schlafproblemen',
     title: 'Schlafprobleme: Psychotherapie in Wien | Alexandra Seemann',
     description: 'Einschlafprobleme, nächtliches Grübeln oder Durchschlafstörungen? Psychotherapie bei Schlafproblemen in 1090 Wien. Termin online buchen.',
     text: 'Wenn Sie abends lange wach liegen, nachts immer wieder aufwachen oder Ihre Gedanken einfach nicht zur Ruhe kommen, wirkt sich das auf Ihr ganzes Befinden aus. Schlafprobleme hängen häufig mit Stress, Sorgen oder belastenden Lebensumständen zusammen. In der Psychotherapie gehen wir den Ursachen nach und suchen nach Möglichkeiten, das Grübeln zu unterbrechen und Ihrem Schlaf wieder mehr Raum zu geben. Körperliche Ursachen sollten zusätzlich ärztlich abgeklärt werden.'
   },
   {
     slug: 'selbstwert', term: 'geringes Selbstwertgefühl', crumb: 'Selbstwert',
-    h1: 'Selbstwertgefühl stärken: Psychotherapie in Wien',
+    h1: 'Selbstwertgefühl stärken: Psychotherapie',
     title: 'Selbstwert stärken: Psychotherapie Wien | Alexandra Seemann',
     description: 'Selbstzweifel, Unsicherheit oder Angst vor Ablehnung? Psychotherapie zur Stärkung des Selbstwertgefühls in 1090 Wien. Termin online buchen.',
     text: 'Selbstzweifel, ständige Unsicherheit oder die Angst, abgelehnt zu werden, können das Leben spürbar einengen. Vielleicht stellen Sie hohe Ansprüche an sich und haben trotzdem selten das Gefühl, genug zu sein. Ein geringes Selbstwertgefühl hat oft eine lange Geschichte und ist gut nachvollziehbar. In der Psychotherapie schauen wir gemeinsam auf diese Erfahrungen und entwickeln einen freundlicheren Blick auf Sie selbst, der Ihnen helfen kann, Ihren Fähigkeiten mehr zu vertrauen.'
   },
   {
     slug: 'trauer', term: 'Trauer', crumb: 'Trauer',
-    h1: 'Begleitung in der Trauer: Psychotherapie in Wien',
+    h1: 'Begleitung in der Trauer: Psychotherapie',
     title: 'Trauerbegleitung in Wien: Psychotherapie | Alexandra Seemann',
     description: 'Einen Verlust verarbeiten und Abschied nehmen: einfühlsame psychotherapeutische Begleitung in der Trauer in 1090 Wien. Termin online buchen.',
     text: 'Der Verlust eines geliebten Menschen verändert vieles. Trauer zeigt sich bei jedem Menschen anders und braucht ihre eigene Zeit. Manchmal bleibt der Schmerz lange sehr stark, oder es fällt schwer, Abschied zu nehmen und den Alltag wieder zu bewältigen. In der Psychotherapie finden Sie einen geschützten Raum für Ihre Gefühle und Erinnerungen. Gemeinsam suchen wir nach Wegen, mit dem Verlust zu leben und behutsam neuen Halt zu finden.'
   },
   {
     slug: 'lebenskrisen', term: 'belastende Lebensereignisse', crumb: 'Belastende Lebensereignisse',
-    h1: 'Psychotherapie bei Lebenskrisen in Wien',
+    h1: 'Psychotherapie bei Lebenskrisen',
     title: 'Psychotherapie bei Lebenskrisen in Wien | Alexandra Seemann',
     description: 'Trennung, Scheidung oder belastende Lebensereignisse? Psychotherapie in Lebenskrisen in 1090 Wien bei Mag.a Alexandra Seemann. Termin online buchen.',
     text: 'Eine Trennung, eine Scheidung, berufliche Umbrüche oder andere einschneidende Erfahrungen können den Boden unter den Füßen ins Wanken bringen. In solchen Lebensphasen ist es verständlich, sich überfordert, verunsichert oder allein zu fühlen. Die Psychotherapie bietet Ihnen Raum, das Erlebte zu ordnen und Ihre eigenen Ressourcen wieder wahrzunehmen. Gemeinsam entwickeln wir Perspektiven, wie Sie diese Veränderung bewältigen und Ihren Weg weitergehen können.'
