@@ -6,13 +6,16 @@ const eur = (n) => `€&nbsp;${n}`;
 import { SITE_URL, ETERMIN_ENABLED } from './config.mjs';
 
 // ---------- Wiederverwendbare Bausteine ----------
-function zuschussTable(h) {
+function zuschussTable(h, { links = false } = {}) {
+  const name = (k, url) => links && url
+    ? `<a href="${h.esc(url)}" target="_blank" rel="noopener noreferrer">${k}<span class="visually-hidden"> (öffnet in neuem Tab)</span></a>`
+    : k;
   return `
 <table class="refund-table">
   <caption class="visually-hidden">Kostenzuschuss der gesetzlichen Krankenversicherungen pro Sitzung</caption>
   <thead><tr><th scope="col">Krankenkasse</th><th scope="col">Kostenzuschuss</th></tr></thead>
   <tbody>
-    ${h.zuschuesse.map(([k, v]) => `<tr><th scope="row">${k}</th><td>€&nbsp;${v}</td></tr>`).join('\n    ')}
+    ${h.zuschuesse.map(([k, v, url]) => `<tr><th scope="row">${name(k, url)}</th><td>€&nbsp;${v}</td></tr>`).join('\n    ')}
   </tbody>
 </table>
 <p class="fineprint">Die Höhe und Voraussetzungen der Kostenübernahme können sich ändern. Bitte informieren Sie sich im Zweifelsfall direkt bei Ihrer Versicherung.</p>`;
@@ -318,7 +321,7 @@ const home = {
   <div class="wrap narrow">
     <h2>Rückerstattung durch die Krankenkasse</h2>
     <p>Bei Vorliegen der Voraussetzungen können Sie einen Teil der Kosten für Einzeltherapie bei Ihrer gesetzlichen Krankenversicherung einreichen.</p>
-    ${zuschussTable(h)}
+    ${zuschussTable(h, { links: true })}
     <p><a class="text-link" href="/kosten/">Kosten, Kostenzuschuss und Einreichung im Detail</a></p>
   </div>
 </section>
