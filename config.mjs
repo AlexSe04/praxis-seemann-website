@@ -64,10 +64,11 @@ export const prices = {
   minutes: 50
 };
 
-// Kostenzuschüsse der gesetzlichen Krankenversicherungen pro Sitzung.
+// Kostenzuschüsse der gesetzlichen Krankenversicherungen pro Sitzung,
+// mit Link auf die offizielle Informationsseite zur Psychotherapie.
 export const zuschuesse = [
-  ['ÖGK', '33,70'],
-  ['SVS', '50,00'],
-  ['BVAEB', '50,20'],
-  ['KFA Wien', '39,00']
+  ['ÖGK', '33,70', 'https://www.sozialversicherung.gv.at/cdscontent/?contentid=10007.870222&portal=oegkportal'],
+  ['SVS', '50,00', 'https://www.svs.at/cdscontent/?contentid=10007.816748&portal=svsportal'],
+  ['BVAEB', '50,20', 'https://www.bvaeb.at/cdscontent/?contentid=10007.840357&portal=bvaebbportal'],
+  ['KFA Wien', '39,00', 'https://www.kfawien.at/web/leistungen/krankheit/aerztliche-versorgung']
 ];
