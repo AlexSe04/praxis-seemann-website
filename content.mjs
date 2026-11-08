@@ -128,14 +128,14 @@ const topics = [
   },
   {
     slug: 'selbstwert', term: 'geringes Selbstwertgefühl', crumb: 'Selbstwert',
-    h1: 'Selbstwertgefühl stärken: Psychotherapie',
+    h1: 'Psychotherapie zur Stärkung des Selbstwertgefühls',
     title: 'Selbstwert stärken: Psychotherapie Wien | Alexandra Seemann',
     description: 'Selbstzweifel, Unsicherheit oder Angst vor Ablehnung? Psychotherapie zur Stärkung des Selbstwertgefühls in 1090 Wien. Termin online buchen.',
     text: 'Selbstzweifel, ständige Unsicherheit oder die Angst, abgelehnt zu werden, können das Leben spürbar einengen. Vielleicht stellen Sie hohe Ansprüche an sich und haben trotzdem selten das Gefühl, genug zu sein. Ein geringes Selbstwertgefühl hat oft eine lange Geschichte und ist gut nachvollziehbar. In der Psychotherapie schauen wir gemeinsam auf diese Erfahrungen und entwickeln einen freundlicheren Blick auf Sie selbst, der Ihnen helfen kann, Ihren Fähigkeiten mehr zu vertrauen.'
   },
   {
     slug: 'trauer', term: 'Trauer', crumb: 'Trauer',
-    h1: 'Begleitung in der Trauer: Psychotherapie',
+    h1: 'Psychotherapie bei Trauer',
     title: 'Trauerbegleitung in Wien: Psychotherapie | Alexandra Seemann',
     description: 'Einen Verlust verarbeiten und Abschied nehmen: einfühlsame psychotherapeutische Begleitung in der Trauer in 1090 Wien. Termin online buchen.',
     text: 'Der Verlust eines geliebten Menschen verändert vieles. Trauer zeigt sich bei jedem Menschen anders und braucht ihre eigene Zeit. Manchmal bleibt der Schmerz lange sehr stark, oder es fällt schwer, Abschied zu nehmen und den Alltag wieder zu bewältigen. In der Psychotherapie finden Sie einen geschützten Raum für Ihre Gefühle und Erinnerungen. Gemeinsam suchen wir nach Wegen, mit dem Verlust zu leben und behutsam neuen Halt zu finden.'
