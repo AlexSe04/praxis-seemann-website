@@ -59,7 +59,7 @@ export const intakt = {
 };
 
 export const prices = {
-  einzel: 140,
+  einzel: 120,
   paar: 180,
   minutes: 50
 };
